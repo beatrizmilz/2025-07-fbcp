@@ -1,0 +1,38 @@
+project:
+  type: book
+  output-dir: "docs/"
+book:
+  subtitle: "IX Fórum Brasileiro de Pós-Graduação em Ciência Política"
+  title: "Oficinas de R - IX FBCP"
+  site-url: "https://beatrizmilz.github.io/2025-07-fbcp/"
+  repo-url: "https://github.com/beatrizmilz/2025-07-fbcp"    
+  date: last-modified
+  repo-branch: main
+  repo-actions: [edit, issue, source]  
+  chapters:
+    - index.qmd
+    - instalacao.qmd
+    - intro-r/index.qmd
+    - visualizacao/index.qmd
+    
+lang: pt 
+language:
+  title-block-author-single: "Docente"
+  title-block-author-plural: "Docentes" 
+  title-block-published: "Atualizado em"
+
+# bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  # pdf:
+  #   documentclass: scrreprt
+
+author:
+  - name: "Beatriz Milz"
+    url: "https://www.beamilz.com/"
+    email: "milz.bea@gmail.com"
+

@@ -1,0 +1,27 @@
+# Boas vindas! {.unnumbered}
+
+Olá! Este site contém os materiais para as duas oficinas de R que serão oferecidas durante o [IX Fórum Brasileiro de Pós-Graduação em Ciência Política](https://www.even3.com.br/ix-fbcp/):
+
+  - [Introdução ao R para análise de dados](intro-r/index.qmd) - 21 e 22/07/2025
+ 
+  - [Introdução à elaboração de gráficos com ggplot2 e R](visualizacao/index.qmd) - 23 e 24/07/2025
+
+Local: Faculdade de Filosofia, Letras e Ciências Humanas (FFLCH-USP)
+
+:::{.callout-important}
+Recomendamos que todas as pessoas participantes instalem o R e o RStudio antes da oficina.
+Para isso, siga as instruções disponíveis na página [Instruções de instalação](instalacao.qmd).
+:::
+
+## Ministrante
+
+**Beatriz Milz** <br>
+*Pesquisadora Colaboradora | Estágio pós-doutoral* <br>
+[Laboratório de Planejamento Territorial (LaPlan)](https://laplan.pesquisa.ufabc.edu.br/) - Universidade Federal do ABC (UFABC) <br>
+[Email](mailto:milz.bea@gmail.com) | [GitHub](https://github.com/beatrizmilz) | [LinkedIn](https://www.linkedin.com/in/beatrizmilz/) |
+[ResearchGate](https://www.researchgate.net/profile/Beatriz-Milz) | [Currículo Lattes](http://lattes.cnpq.br/5150665880581477) | [Orcid](https://orcid.org/0000-0002-3064-4486)
+
+## Sobre este material
+### Licença
+
+Esse material está disponível sob a [licença CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
