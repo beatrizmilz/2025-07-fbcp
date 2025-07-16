@@ -21,6 +21,15 @@ Para isso, siga as instruções disponíveis na página [Instruções de instala
 [Email](mailto:milz.bea@gmail.com) | [GitHub](https://github.com/beatrizmilz) | [LinkedIn](https://www.linkedin.com/in/beatrizmilz/) |
 [ResearchGate](https://www.researchgate.net/profile/Beatriz-Milz) | [Currículo Lattes](http://lattes.cnpq.br/5150665880581477) | [Orcid](https://orcid.org/0000-0002-3064-4486)
 
+## Materiais complementares
+
+-   Materiais do curso [Introdução à análise de dados no R](https://ipeadata-lab.github.io/curso_r_intro_202409/)
+
+-   Livro [R para Ciência de Dados 2ed](https://cienciadedatos.github.io/pt-r4ds/)
+
+- Material da disciplina [Análise de Dados para as Ciências Sociais](https://jonnyphillips.github.io/Ciencia_de_Dados/), por Jonathan Phillips.
+
+
 ## Sobre este material
 ### Licença
 
