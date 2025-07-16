@@ -30,6 +30,21 @@ Após instalar o R, acesse o site [RStudio Desktop](https://posit.co/download/rs
 
 Instale o RStudio utilizando o instalador baixado.
 
+
+::: callout-tip
+Caso o seu computador tenha limitações para instalação de programas, você pode utilizar o [Posit Cloud](https://posit.cloud/), uma versão online do RStudio. Entretanto, a versão gratuita do Posit Cloud tem algumas limitações, como limite de tempo de uso (25 horas por mês) e de memória RAM (1 GB).
+
+O vídeo abaixo apresenta um tutorial sobre como utilizar o Posit Cloud:
+
+<center>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N-GJowa-V0o?si=Ohy9cbx9GSUrnIn_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+</center>
+:::
+
 ###  Verificação da instalação
 
 Para verificar se a instalação foi realizada com sucesso, abra o RStudio. Para isso, procure o ícone do RStudio no menu de programas do seu sistema operacional.
