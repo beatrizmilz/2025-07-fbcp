@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Oficinas de R - IX FBCP",
+    "section": "",
+    "text": "Boas vindas!\nOlá! Este site contém os materiais para as duas oficinas de R que serão oferecidas durante o IX Fórum Brasileiro de Pós-Graduação em Ciência Política:\nLocal: Faculdade de Filosofia, Letras e Ciências Humanas (FFLCH-USP)",
+    "crumbs": [
+      "Boas vindas!"
+    ]
+  },
+  {
+    "objectID": "index.html#ministrante",
+    "href": "index.html#ministrante",
+    "title": "Oficinas de R - IX FBCP",
+    "section": "Ministrante",
+    "text": "Ministrante\nBeatriz Milz  Pesquisadora Colaboradora | Estágio pós-doutoral  Laboratório de Planejamento Territorial (LaPlan) - Universidade Federal do ABC (UFABC)  Email | GitHub | LinkedIn | ResearchGate | Currículo Lattes | Orcid",
+    "crumbs": [
+      "Boas vindas!"
+    ]
+  },
+  {
+    "objectID": "index.html#sobre-este-material",
+    "href": "index.html#sobre-este-material",
+    "title": "Oficinas de R - IX FBCP",
+    "section": "Sobre este material",
+    "text": "Sobre este material\n\nLicença\nEsse material está disponível sob a licença CC BY-SA 4.0.",
+    "crumbs": [
+      "Boas vindas!"
+    ]
+  },
+  {
+    "objectID": "instalacao.html",
+    "href": "instalacao.html",
+    "title": "1  Orientações pré-oficina",
+    "section": "",
+    "text": "1.1 Instalação do R e RStudio\nPara a utilização do R, é necessário instalar o software R e o RStudio. O R é a linguagem de programação e o RStudio é um ambiente de desenvolvimento integrado (IDE - Integrated Development Environment) que facilita a utilização do R.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Orientações pré-oficina</span>"
+    ]
+  },
+  {
+    "objectID": "instalacao.html#instalação-do-r-e-rstudio",
+    "href": "instalacao.html#instalação-do-r-e-rstudio",
+    "title": "1  Orientações pré-oficina",
+    "section": "",
+    "text": "Aviso\n\n\n\nAtenção: O R deve ser instalado antes do RStudio.\n\n\n\n1.1.1 Instalação do R\nPara instalar o R, acesse o site CRAN e escolha o link de download de acordo com o seu sistema operacional:\n\n\n\n\n\n\n\nCaptura de tela do site CRAN\n\n\nInstale o R utilizando o instalador baixado.\n\n\n1.1.2 Instalação do RStudio\nApós instalar o R, acesse o site RStudio Desktop e escolha o link de download de acordo com o seu sistema operacional:\n\n\n\n\n\n\n\nCaptura de tela do site RStudio Desktop\n\n\nInstale o RStudio utilizando o instalador baixado.\n\n\n1.1.3 Verificação da instalação\nPara verificar se a instalação foi realizada com sucesso, abra o RStudio. Para isso, procure o ícone do RStudio no menu de programas do seu sistema operacional.\nA tela inicial do RStudio é semelhante à imagem abaixo:\n\n\n\nCaptura de tela da IDE RStudio\n\n\n\n\n1.1.4 Verificação da versão do R\nCaso você tenha o R instalado previamente, é importante verificar se a versão instalada é recente.\n\n\n\n\n\n\nAviso\n\n\n\nRecomendamos que utilizem o R na versão 4.1.0 ou superior.\nCaso a versão do R seja inferior a 4.1.0, recomendamos que atualizem o R para a versão mais recente.\nVersões mais antigas podem ter incompatibilidades com alguns códigos que utilizaremos durante o curso.\n\n\nExiste mais de uma forma para verificar a versão do R. A forma mais simples é verificando o texto que aparece no painel “Console” ao abrir o RStudio:\n\n\n\nCaptura de tela da IDE RStudio\n\n\nOutra forma é utilizando o comando R.version.string. Para isso, execute o seguinte comando no console do RStudio. Por exemplo, a versão do R utilizada para a elaboração deste material é 4.5.0:\nO comando R.version retorna um objeto com diversas informações sobre a versão do R, o sistema operacional utilizado, etc:\n\nR.version\n\n               _                           \nplatform       aarch64-apple-darwin20      \narch           aarch64                     \nos             darwin20                    \nsystem         aarch64, darwin20           \nstatus                                     \nmajor          4                           \nminor          5.0                         \nyear           2025                        \nmonth          04                          \nday            11                          \nsvn rev        88135                       \nlanguage       R                           \nversion.string R version 4.5.0 (2025-04-11)\nnickname       How About a Twenty-Six",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Orientações pré-oficina</span>"
+    ]
+  },
+  {
+    "objectID": "intro-r/index.html",
+    "href": "intro-r/index.html",
+    "title": "2  Introdução ao R para análise de dados",
+    "section": "",
+    "text": "2.1 Descrição\nNesta oficina, será apresentado o ambiente de programação R e o IDE RStudio. A oficina é voltada para iniciantes e não é necessário conhecimento prévio de programação. Durante a oficina, serão abordadas tarefas básicas como iniciar um projeto, importar tabelas, realizar filtros, criar tabelas de resumo (com estatísticas descritivas), e exportar resultados. Esta oficina faz parte de uma trilha de treinamentos voltada para iniciantes, fornecendo uma base para quem deseja aprender a analisar dados com R.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introdução ao R para análise de dados</span>"
+    ]
+  },
+  {
+    "objectID": "visualizacao/index.html",
+    "href": "visualizacao/index.html",
+    "title": "3  Introdução à elaboração de gráficos com ggplot2 e R",
+    "section": "",
+    "text": "3.1 Descrição\nNesta oficina, será apresentado o pacote ggplot2 em R. Este pacote é um dos mais populares para visualização de dados e permite a criação de gráficos de alta qualidade, como histogramas, boxplots, gráficos de dispersão e de barras. A oficina é voltada para iniciantes, porém é necessário ter conhecimento básico de R.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introdução à elaboração de gráficos com ggplot2 e R</span>"
+    ]
+  }
+]
