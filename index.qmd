@@ -10,7 +10,7 @@ Local: Faculdade de Filosofia, Letras e Ciências Humanas (FFLCH-USP)
 
 :::{.callout-important}
 Recomendamos que todas as pessoas participantes instalem o R e o RStudio antes da oficina.
-Para isso, siga as instruções disponíveis na página [Instruções de instalação](instalacao.qmd).
+Para isso, siga as instruções disponíveis na página [Orientações pré-oficina](instalacao.qmd).
 :::
 
 ## Ministrante
