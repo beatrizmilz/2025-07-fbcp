@@ -367,11 +367,18 @@ head(airquality)
 
 Para criar um data.frame, podemos usar a função `data.frame()`. Entretanto, o mais comum é importar dados de arquivos, como CSV, Excel, ou de bancos de dados. Falaremos sobre como importar dados na próxima aula.
 
-## Dia 2 - Parte 1 - ...
+## Dia 2 - Parte 1 - Importação de dados
+
+### Dados utilizados: Eleicões de 2024
+
+Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre as eleições de 2024. A base de dados original foi baixada do [portal de dados abertos do TSE](https://dadosabertos.tse.jus.br/dataset/resultados-2024): Votação nominal por município e zona. Para facilitar o download dos dados durante a atividade, filtramos a tabela para dados do município de São Paulo.
+
+Junto aos dados, o TSE disponibiliza também um arquivo chamado `leiame.pdf`, com informações importantes sobre os dados, significado dos nomes das colunas, entre outros. 
+
 
 Em breve!
 
-## Dia 2 - Parte 2 - ...
+## Dia 2 - Parte 2 - Transformação de dados
 
 Em breve!
 
