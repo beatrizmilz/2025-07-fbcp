@@ -1,0 +1,77 @@
+---
+title: "Dia 2 - Importação e transformação"
+---
+
+::: {.callout-warning}
+Página em construção.
+:::
+
+
+## Importação de dados
+
+### Dados utilizados: Eleicões de 2024
+
+Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre as eleições de 2024. A base de dados original foi baixada do [portal de dados abertos do TSE](https://dadosabertos.tse.jus.br/dataset/resultados-2024): Votação nominal por município e zona. Para facilitar o download dos dados durante a atividade, [filtramos a tabela](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R) para dados do município de São Paulo.
+
+Junto aos dados, o TSE disponibiliza também um arquivo chamado [`leiame.pdf`](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/leiame.pdf), com informações importantes sobre os dados, significado dos nomes das colunas, entre outros. É importante ler estes arquivos, quando disponibilizados.
+
+Vamos utilizar o pacote tidyverse para importar os dados, então é importante garantir que ele esteja carregado:
+
+```{r}
+library(tidyverse)
+```
+
+O arquivo que queremos importar é [esse aqui: votacao_muni_sp.csv](https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/votacao_muni_sp.csv). Ele é um arquivo `.csv` (CSV = *comma separated values*, ou valores separados por vírgula), porém o separador utilizado é o `;`.
+
+Para importar esse arquivo, podemos utilizar a função `read_csv2()` (a função `read_csv()` é utilizada para importar tabelas com valores separados por vírgula):
+
+
+```{r}
+dados <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/votacao_muni_sp.csv")
+```
+
+A função `View()` pode ser utilizada para visualizar os dados em uma tabela interativa:
+
+```{r}
+#| eval: false
+View(dados)
+```
+
+
+### Conhecendo a base de dados
+
+Para conhecer melhor a base de dados, podemos utilizar algumas funções para explorar as colunas e os tipos de dados.
+
+A função `nrow()` nos mostra o número de linhas da base de dados, e a função `ncol()` nos mostra o número de colunas:
+
+```{r}
+nrow(dados)
+ncol(dados)
+```
+
+
+A função `colnames()` nos mostra os nomes das colunas:
+
+```{r}
+colnames(dados)
+```
+
+
+A função `head()` nos mostra as primeiras linhas da base de dados, e a função `tail()` nos mostra as últimas linhas:
+
+```{r}
+head(dados)
+tail(dados)
+```
+
+A função `glimpse()` apresenta várias informações relevantes: número de linhas, número de colunas, nome das colunas, valores de algumas observações, etc.
+
+```{r}
+glimpse(dados)
+```
+
+## Transformação de dados
+
+Em breve!
+
+

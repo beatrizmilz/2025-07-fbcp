@@ -12,8 +12,12 @@ book:
   chapters:
     - index.qmd
     - instalacao.qmd
-    - intro-r/index.qmd
+    - part: intro-r/index.qmd
+      chapters: 
+        - intro-r/dia-1.qmd
+        - intro-r/dia-2.qmd
     - visualizacao/index.qmd
+
     
 lang: pt 
 language:

@@ -2,6 +2,12 @@
 title: "Introdução à elaboração de gráficos com ggplot2 e R"
 ---
 
+::: {.callout-warning}
+Página em construção.
+:::
+
+
+
 ## Descrição
 
 Nesta oficina, será apresentado o pacote ggplot2 em R. Este pacote é um dos mais populares para visualização de dados e permite a criação de gráficos de alta qualidade, como histogramas, boxplots, gráficos de dispersão e de barras. A oficina é voltada para iniciantes, porém **é necessário ter conhecimento básico de R**.

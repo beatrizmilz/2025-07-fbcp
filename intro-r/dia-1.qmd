@@ -1,0 +1,362 @@
+---
+title: "Dia 1 - Ambientação e conceitos básicos"
+---
+
+::: {.callout-warning}
+Página em construção.
+:::
+
+
+### O que é o R?
+
+R é uma **linguagem de programação** com o foco em estatística, análise e visualização de dados.
+
+Ela é uma linguagem de código aberto, o que significa que qualquer pessoa pode utilizá-la gratuitamente. Além disso, as pessoas com mais experiência na linguagem podem contribuir com o desenvolvimento de novas funcionalidades e pacotes.
+
+Caso queira saber mais sobre a linguagem R, [acesse o site oficial (R-Project)](https://www.r-project.org/about.html).
+
+Ao instalar o R, você terá acesso a um programa chamado "R Console" que permite escrever e executar códigos em R:
+
+![Captura de tela do R Console no Windows](images/01_r_console_windows.jpg){fig-align="center"}
+
+Porém o `R Console` não é muito amigável para escrever códigos complexos ou realizar análises de dados. Por isso, é recomendado utilizar um ambiente de desenvolvimento integrado (IDE). A IDE mais utilizada por pessoas que programam em R é o RStudio.
+
+### O que é o RStudio?
+
+<img src="images/00_RStudio_logo.png" class="img-rstudio" align="right" width="120px"/>
+
+O RStudio é um IDE focada em programação em R, e é desenvolvido pela [Posit](https://posit.co/). Ele facilita a escrita de códigos, execução de scripts, e visualização dos resultados.
+
+Existem algumas versões do RStudio. Nesta oficina, utilizaremos o [RStudio Desktop](https://posit.co/download/rstudio-desktop/), pois é a versão de código aberto (portanto é gratuita). Daqui em diante, sempre que mencionarmos "RStudio", estaremos nos referindo ao RStudio Desktop.
+
+### Criando projetos
+
+O RStudio possui uma funcionalidade chamada **projetos**. Quando criamos um projeto no RStudio, uma nova pasta é criada no computador, e o RStudio define essa pasta como o diretório de trabalho. Além disso, o RStudio também cria um arquivo com a extensão `.Rproj` dentro dessa pasta, que contém informações sobre o projeto.
+
+É recomendado que sempre trabalhemos em projetos no RStudio, pois isso facilita a organização dos arquivos e a reprodução do código.
+
+É recomendado também salvar os arquivos referentes ao projeto (como scripts, bases de dados, resultados, etc) dentro do projeto. Isso não significa que precisamos colocar todos os arquivos dentro da pasta principal do projeto: podemos criar sub-pastas para organizar os arquivos.
+
+Para criar um projeto no RStudio, primeiro precisamos acessar o menu de criação de projetos (*New project Wizard*). Podemos fazer isso de três formas:
+
+-   No menu superior, clicando em `File > New Project...`
+
+-   Clicando no ícone de novo projeto na barra de ferramentas do RStudio: ![](images/01_icone_novo_proj.png)
+
+-   No canto superior esquerdo, clicando no botão referente à projetos, e depois em `New Project...`:
+
+![Captura de tela do RStudio: Menu de projetos](images/01_botao_projetos.png){fig-align="center"}
+
+Depois, escolhemos o tipo de projeto que queremos criar. No geral, escolhemos a opção `New Directory`, para criar uma nova pasta no computador:
+
+![Captura de tela do RStudio: Criando um projeto](images/01_new_project.png){fig-align="center"}
+
+Depois, escolhemos o tipo de projeto que queremos criar. Cada tipo de projeto apresenta arquivos específicos de template. O RStudio apresenta algumas opções de projeto, porém é possível adicionar novos tipos de projeto instalandos pacotes específicos.
+
+No geral, escolhemos a opção `New Project`, para criar um projeto simples:
+
+![Captura de tela do RStudio: Escolhendo o tipo de projeto](images/01_new_project_type.png){fig-align="center"}
+
+Na tela seguinte, precisamos informar o nome do projeto (no campo *Directory name*) e o diretório onde ele será criado (no campo *Create project as subdirectory of*):
+
+![Captura de tela do RStudio: Nomeando o projeto](images/01_new_project_name_dir.png){fig-align="center"}
+
+Após preencher as informações solicitadas, clicamos em `Create Project`. O RStudio criará o projeto e o abrirá:
+
+![Captura de tela do RStudio: projeto criado](images/01_projeto_criado.png){fig-align="center"}
+
+::: callout-tip
+**Note que o nome do projeto que criamos aparece no canto superior direito do RStudio.**
+:::
+
+### Conhecendo o RStudio
+
+Ao abrir o RStudio, veremos a seguinte tela:
+
+![Captura de tela do RStudio](images/01_rstudio_3_paineis.png){fig-align="center"} Aos poucos, conheceremos os painéis e funcionalidades do RStudio. Neste momento, podemos destacar os três painéis que são apresentados:
+
+-   **Console**: painel onde os códigos são executados. É similar ao "R Console", citado anteriormente.
+
+-   **Environment**: painel onde as variáveis e dados carregados ficam listados.
+
+-   **Files**: painel onde podemos navegar por arquivos no computador. A página inicial é o diretório de trabalho: esse conceito será explicado mais adiante.
+
+### Scripts
+
+No RStudio, podemos escrever e executar códigos no Console, porém os códigos são perdidos quando fechamos o programa. Para salvar os códigos e reutilizá-los posteriormente, utilizamos scripts.
+
+Os scripts são arquivos de texto onde podemos escrever códigos R e salvá-los para utilizar posteriormente. É recomendado que qualquer código que você deseje reutilizar ou que seja importante para a análise que você fizer seja salvo em um script.
+
+Existem algumas formas de criar um novo script:
+
+-   No menu superior, clicando em `File > New File > R Script`.
+
+-   Utilizando o atalho `Ctrl + Shift + N` (Windows) ou `Cmd + Shift + N` (Mac).
+
+-   Clicando no ícone de um arquivo com um sinal de `+` no canto superior esquerdo do RStudio e selecionando `R Script`:
+
+![Captura de tela do RStudio: Opção para criar novo Script](images/01_rstudio_new_script.jpg){fig-align="center"}
+
+Após abrir um script, o RStudio exibirá 4 paineis:
+
+![Captura de tela do RStudio](images/01_rstudio_4_paineis.png){fig-align="center"}
+
+::: callout-tip
+O script é um arquivo salvo no nosso computador. Lembre-se de salvar os scripts com frequência para evitar perder o nosso trabalho.
+
+Podemos salvar um script de algumas formas, como:
+
+-   Clicando em `File > Save` no menu superior.
+
+-   Clicando no ícone do disquete (![](images/01_disquete.png)).
+
+-   Utilizando o atalho `Ctrl + S` (Windows) ou `Cmd + S` (Mac).
+:::
+
+#### Como executar os códigos?
+
+Podemos escrever e executar códigos no Console ou em um script.
+
+No Console, escrevemos o código diretamente e pressionamos `Enter` para executá-lo.
+
+Em um Script, escrevemos o código e podemos executá-lo de algumas formas:
+
+-   Selecionando o trecho de código que queremos executar e clicando no botão `Run` do RStudio, ou utilizando o atalho `Ctrl + Enter` (Windows) ou `Cmd + Enter` (Mac).
+
+-   Clicando no trecho que queremos executar e clicando no botão `Run` do RStudio, ou utilizando o atalho `Ctrl + Enter` (Windows) ou `Cmd + Enter` (Mac).
+
+#### Comentários
+
+Comentários são textos que não são executados pelo R. Podemos usar comentários para explicar o que um bloco de código faz, para anotar ideias e explicar escolhas feitas, ou para desativar temporariamente um trecho de código.
+
+No R, todo texto em uma linha após um hashtag (`#`) é um comentário. Por exemplo:
+
+```{r}
+# Este é um comentário
+```
+
+### Funções
+
+Agora que já sabemos onde escrever nossos códigos em R (no Console ou em um script), é importante entender o conceito de funções.
+
+Uma função é tipo de objeto no R, que quando executado, executa um bloco de código específico. As funções são úteis para evitar repetição de códigos e organizar o nosso trabalho.
+
+No R, existem muitas funções prontas que podemos utilizar. Por exemplo, a função `Sys.Date()` retorna a data atual do sistema:
+
+```{r}
+# Consutar a data atual do sistema (computador)
+Sys.Date()
+```
+
+Para utilizar uma função, escrevemos o nome dela seguido de parênteses. Dentro dos parênteses, podemos colocar dados e informações úteis para a função executar a tarefa desejada, e são chamados de **argumentos**.
+
+Por exemplo, a função `sqrt()` calcula a raiz quadrada de um número. Para utilizá-la, podemos escrever `sqrt()` e informar esse número entre parênteses:
+
+```{r}
+# Calcular a raiz quadrada de 25
+sqrt(25)
+```
+
+Algumas funções podem receber mais de um argumento. Por exemplo, a função `round()` arredonda um número para um determinado número de casas decimais. Para utilizá-la, podemos escrever `round()` e informar o número e o número de casas decimais entre parênteses:
+
+```{r}
+pi
+# Sem argumentos: arredondar o número pi para um número inteiro (0 casas decimais)
+round(pi)
+# Com argumentos: arredondar o número pi para 2 casas decimais
+round(pi, digits = 2)
+```
+Podemos consultar a documentação de uma função para entender como ela funciona, quais argumentos ela aceita e como utilizá-la. Falaremos mais sobre isso na seção de documentação.
+
+::: callout-tip
+Ao adquirir experiência com o R, podemos criar nossas próprias funções. Isso é útil para automatizar tarefas repetitivas e para organizar o código.
+:::
+
+### Pacotes
+
+Pacotes do R são coleções de funções, dados e documentação que estendem a funcionalidade básica da linguagem.
+
+Para instalar um pacote, utilizamos a função `install.packages()` e informando o nome do pacote como texto entre aspas. Por exemplo, para instalar o pacote `{tidyverse}`, utilizamos o seguinte comando:
+
+```{r}
+#| eval: false
+# Instalar o pacote tidyverse
+install.packages("tidyverse") 
+```
+
+Apenas precisamos instalar um pacote uma vez.
+
+Depois de instalado, podemos carregá-lo com a função `library()`, para que as funções do pacote fiquem disponíveis para uso:
+
+```{r}
+# Carregar o pacote tidyverse
+library(tidyverse) 
+```
+
+Precisamos carregar o pacote sempre que abrirmos um novo script, ou quando reiniciamos o RStudio. Uma pratica frequente é carregar os principais pacotes necessários no início do script.
+
+::: callout-caution
+Uma outra forma de acessar uma função é utilizando o operador `::`. Por exemplo, para acessar a função `read_csv()` do pacote `{readr}`, podemos escrever `readr::read_csv()`.
+
+Essa sintaxe é menos frequente, porém útil para evitar problemas de conflito de funções com o mesmo nome em pacotes diferentes. Esse problema acontece mais frequentemente quando carregamos muitos pacotes em um mesmo script.
+
+Por exemplo: o pacote `{dplyr}` apresenta uma função `filter()`, e o pacote `{stats}` também apresenta uma função `filter()`. Se não usarmos o operador `::`, a função utilizada será a do pacote que foi carregado por último. Usando o operador `::`, podemos escolher qual função queremos utilizar.
+:::
+
+
+
+
+### Documentação
+
+As funções e pacotes do R apresentam textos com explicações e exemplos de uso, chamados de **documentação**.
+
+No RStudio, podemos acessar a documentação de uma função ou pacote das seguintes formas:
+
+-   Para buscar informações sobre funções de pacotes já carregados (com `library`), podemos utilizar a função `help()`, informando o nome da função que queremos buscar como argumento (ex: `help(mean)`), ou utilizar o operador `?`, seguido do nome da função (ex: `?mean`).
+
+```{r}
+#| eval: false
+# Abrir a documentação da função mean()
+help(mean)
+?mean  
+```
+
+-   Para fazer uma por funções presentes em todos os pacotes instalados no computador, podemos utilizar o operador `??`, seguido pelo termo que queremos buscar (ex: `??mean`). Essa é uma busca mais ampla, que procura pelo termo no nome e na descrição das funções.
+
+```{r}
+#| eval: false
+# Buscar por funções que contenham o termo "mean"
+??mean 
+```
+
+-   Podemos utilizar o painel Help para buscar informações sobre funções e pacotes:
+
+![Captura de tela do RStudio: Painel Help](images/01_rstudio_help.png){fig-align="center"}
+
+### Operações matemáticas
+
+O R permite realizar operações matemáticas básicas, como soma, subtração, multiplicação, divisão, potenciação, entre outras.
+
+```{r}
+1 + 1 # Soma
+1 - 1 # Subtração
+2 * 3 # Multiplicação
+10 / 2 # Divisão
+2 ^ 3 # Potenciação
+```
+
+A ordem matemática das operações também vale no R. Por exemplo, a expressão `2 + 3 * 4` será calculada como `2 + (3 * 4)`:
+
+```{r}
+2 + 3 * 4
+```
+
+### Objetos
+
+No R, um objeto é uma estrutura de dados que armazena valores: podemos armazenar um valor único, um conjunto de valores, uma base de dados, entre outros.
+
+É muito útil armazenar valores em objetos, pois podemos reutilizá-los em diferentes partes do código, sem precisar digitar o valor novamente.
+
+#### Objetos existentes no R
+
+Existem alguns objetos já criados no R, como por exemplo o objeto `letters`, que armazena as letras do alfabeto:
+
+```{r}
+pi
+letters
+```
+
+::: callout-warning
+O R é *case-sensitive*, ou seja, ele diferencia letras maiúsculas de minúsculas. Portanto, `nome` é diferente de `Nome`.
+
+Por exemplo, o objeto `pi` armazena o valor de π (com um número limitado de casas decimais). O nome do objeto é escrito em minúsculas:
+
+```{r}
+pi
+```
+
+Se tentarmos acessar o objeto com o nome em maiúsculas, o R irá retornar um erro, pois esse objeto não existe:
+
+```{r}
+#| error: true
+Pi
+```
+:::
+
+#### Criando um objeto
+
+Para criar um objeto, precisamos definir um nome, e atribuir um valor à este nome. Para isso, usamos o operador de atribuição: `<-`. Um atalho para esse operador é o `Ctrl` + `-` no Windows, ou `Option` + `-` no Mac .
+
+No exemplo a seguir, criamos um objeto chamado `nome_da_universidade` e atribuímos a ele o texto `"Universidade de São Paulo"`:
+
+```{r}
+nome_da_universidade <- "Universidade de São Paulo"
+```
+
+Podemos acessar o valor armazenado em um objeto digitando o nome do objeto:
+
+```{r}
+nome_da_universidade
+```
+
+O objeto apenas será alterado se utilizarmos o operador de atribuição novamente. Por exemplo, a função `tolower()` transforma todas as letras de um texto em minúsculas:
+
+```{r}
+tolower(nome_da_universidade)
+```
+
+Mas como não utilizamos a atribuição, o objeto `nome_da_universidade` não foi alterado:
+
+```{r}
+nome_da_universidade
+```
+
+Para alterar o objeto, precisamos atribuir o resultado da função `tolower()` ao objeto `nome_da_universidade`:
+
+```{r}
+nome_da_universidade <- tolower(nome_da_universidade)
+```
+
+Agora, o objeto `nome_da_universidade` foi alterado:
+
+```{r}
+nome_da_universidade
+```
+
+Portanto, cuidado: ao criar um objeto com nome igual à outro objeto existente, o objeto anterior será substituído pelo novo objeto.
+
+### Tipos de objetos
+
+Existem diferentes tipos de objetos no R, e cada tipo de objeto possui diferentes propriedades. Os principais tipos de objetos que utilizaremos ao longo do curso são: vetores e *data.frames*.
+
+#### Vetores
+
+Vetores armazenam um conjunto de valores de uma dimensão. Eles podem ser criados com a função `c()`, que significa *combine* (combinar). Por exemplo, para criar um vetor com os números de 1 a 5:
+
+```{r}
+vetor_de_numeros <- c(1, 2, 3, 4, 5)
+```
+
+Os vetores podem armazenar diferentes tipos de dados, como números, textos, fatores, entre outros. Porém cada vetor pode armazenar apenas um tipo de dado. Por exemplo, se tentarmos criar um vetor que armazena números e textos, o R irá converter todos os valores para texto. Essa propriedade é chamada de **coerção**.
+
+```{r}
+vetor_misto <- c(1, 2, "três", 4, 5)
+class(vetor_misto)
+vetor_misto
+```
+
+No geral, podemos converter dados sem perder informação seguindo essa ordem: Lógico \> Inteiro \> Numérico \> Texto.
+
+#### Data.frames
+
+Os *data.frames* são conjuntos de valores com duas dimensões: linhas e colunas. Porém, diferente do que vimos para as matrizes, os *data.frames* podem armazenar diferentes tipos de dados em cada coluna.
+
+Esse é o principal tipo de objeto que utilizaremos nesse curso, pois ele é muito útil para armazenar dados tabulares.
+
+Existem alguns *data.frames* já criados no R, como o `airquality`, que armazena dados sobre a qualidade do ar na cidade de Nova York, em 1973. Essas são as primeiras linhas do *data.frame* `airquality`:
+
+```{r}
+head(airquality)
+```
+
+Para criar um data.frame, podemos usar a função `data.frame()`. Entretanto, o mais comum é importar dados de arquivos, como CSV, Excel, ou de bancos de dados. Falaremos sobre como importar dados na próxima aula.
