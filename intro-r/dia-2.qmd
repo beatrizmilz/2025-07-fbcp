@@ -21,20 +21,19 @@ Vamos utilizar o pacote tidyverse para importar os dados, então é importante g
 library(tidyverse)
 ```
 
-O arquivo que queremos importar é [esse aqui: votacao_muni_sp.csv](https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/votacao_muni_sp.csv). Ele é um arquivo `.csv` (CSV = *comma separated values*, ou valores separados por vírgula), porém o separador utilizado é o `;`.
+O arquivo que queremos importar é [esse aqui: candidatos_muni_sp.csv](https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_muni_sp.csv). Ele é um arquivo `.csv` (CSV = *comma separated values*, ou valores separados por vírgula), porém o separador utilizado é o `;`.
 
 Para importar esse arquivo, podemos utilizar a função `read_csv2()` (a função `read_csv()` é utilizada para importar tabelas com valores separados por vírgula):
 
-
 ```{r}
 #| eval: false
-dados <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/votacao_muni_sp.csv")
+dados <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_muni_sp.csv")
 ```
 
 Caso o arquivo esteja salvo no projeto, também podemos importar os dados utilizando o caminho relativo do arquivo:
 
 ```{r}
-dados <- read_csv2("dados/votacao_muni_sp.csv")
+dados <- read_csv2("dados/candidatos_muni_sp.csv")
 ```
 
 
@@ -108,6 +107,7 @@ O operador pipe (`|>` ou `%>%`) permite encadear operações de forma mais legí
 Por exemplo, podemos utilizar o operador pipe para aplicar a função `glimpse()` diretamente nos dados:
 
 ```{r}
+#| eval: false
 dados |> 
   glimpse()
 ```
@@ -144,17 +144,16 @@ Podemos consultar quais são as categorias disponíveis na coluna `DS_CARGO` (De
 dados |> 
   distinct(DS_CARGO)
 ```
-Com isso, sabemos que os dados apresentam resultados de candidatos(as) a vereador(a) e prefeito(a).
+Com isso, sabemos que os dados apresentam resultados para os cargos de vereador, prefeito e vice-prefeito.
 
-Podemos saber também quais são os valores distintos da coluna `DS_SIT_TOT_TURNO` (descrição da situação de totalização da candidata ou
-candidato no turno):
+Podemos saber também quais são os valores distintos da coluna `DS_SIT_TOT_TURNO` (descrição da situação de totalização da candidata ou candidato no turno):
 
 ```{r}
 dados |> 
   distinct(DS_CARGO, DS_SIT_TOT_TURNO)
 ```
 
-Com esses resultados, sabemos que para o cargo de vereador(a), temos as seguintes categorias: [eleito por QP (quociente partidário)](https://www.tse.jus.br/comunicacao/noticias/2024/Marco/quocientes-eleitoral-e-partidario-entenda-como-um-candidato-a-vereador-e-eleito), eleito por média, suplente, não eleito. Para o cargo de prefeito(a), temos as seguintes categorias: eleito, 2º turno, não eleito.
+Com esses resultados, sabemos que para o cargo de vereador(a), temos as seguintes categorias: [eleito por QP (quociente partidário)](https://www.tse.jus.br/comunicacao/noticias/2024/Marco/quocientes-eleitoral-e-partidario-entenda-como-um-candidato-a-vereador-e-eleito), eleito por média, suplente, não eleito e `#NULO`. Para o cargo de prefeito(a) e vice-prefeito(a), temos as seguintes categorias: eleito, 2º turno, não eleito.
 
 ## Filtrando dados com `filter()`
 
@@ -164,7 +163,7 @@ Por exemplo, podemos filtrar apenas as linhas com resultados de candidatos(as) a
 
 ```{r}
 dados_vereadores <- dados |>
-  filter(DS_CARGO == "Vereador")
+  filter(DS_CARGO == "VEREADOR")
 
 dados_vereadores
 ```
@@ -178,8 +177,10 @@ dados_vereadores_eleitos <- dados_vereadores |>
 dados_vereadores_eleitos
 ```
 
+A tabela filtrada tem 55 linhas, ou seja, foram eleitos 55 vereadores(as) na cidade de São Paulo nas eleições de 2024.
 
-Podemos combinar várias condições utilizando os operadores lógicos (como o `|` (OU) e o `!` (NEGAÇÃO)).
+
+Ao filtrar, podemos combinar várias condições utilizando os operadores lógicos (como o `|` (OU) e o `!` (NEGAÇÃO)).
 
 ## Selecionando colunas com `select()`
 
@@ -211,66 +212,63 @@ base_de_dados |>
   mutate(nome_da_nova_coluna = o_que_queremos_que_seja_salvo_nela)
 ```
 
-Por exemplo, podemos criar uma coluna nova chamada `populacao_urbana_mil` que representa a população urbana em mil habitantes:
+A função `mutate()` também pode ser utilizada para modificar colunas existentes.
+
+Por exemplo, podemos criar uma coluna nova chamada `idade` a partir da coluna `DT_NASCIMENTO` (data de nascimento) e da data da eleição:
 
 ```{r}
-dados |>
-  # selecionando as colunas municipio e populacao_urbana
-  # para facilitar a visualização
-  select(municipio, populacao_urbana) |>
-  mutate(populacao_urbana_mil = populacao_urbana / 1000)
-```
-
-A função `mutate()` também pode ser utilizada para modificar colunas existentes. Por exemplo, podemos mudar a classe de algumas colunas:
-
-```{r}
-dados |>
+dados_com_idade <- dados |>
   mutate(
-    ugrhi = as.character(ugrhi),  # convertendo ugrhi para character
-    codigo_ibge = as.character(codigo_ibge)  # convertendo codigo_ibge para character
-  )
+    # convertendo a coluna DT_NASCIMENTO para o formato de data
+    data_de_nascimento = parse_date(DT_NASCIMENTO, format = "%d/%m/%Y"),
+    data_da_eleicao = parse_date(DT_ELEICAO, format = "%d/%m/%Y"),
+    # criando a coluna idade a partir da diferença entre as duas datas
+    idade = floor(interval(data_de_nascimento, data_da_eleicao) / years(1))  # idade em anos 
+  ) 
 ```
-
 
 ## Agrupando dados com `group_by()`
 
 A função `group_by()` é utilizada para agrupar os dados com base em uma ou mais colunas. Isso é especialmente útil quando queremos aplicar funções de resumo a cada grupo.
 
-Por exemplo, podemos agrupar os dados por colunas relacionado aos candidatos a vereador(a) (e seus respectivos partidos):
+Por exemplo, podemos agrupar os dados por colunas relacionado aos partidos:
 
 ```{r}
-dados_vereadores |>
-  group_by(NR_CANDIDATO, NM_CANDIDATO, NM_URNA_CANDIDATO, NM_SOCIAL_CANDIDATO, SG_PARTIDO, NM_PARTIDO) 
+dados_vereadores_eleitos |>
+  group_by(SG_PARTIDO, NM_PARTIDO) 
 ```
-A tabela resultante apresenta 979 grupos, o que indica que houveram 979 pessoas candidatas para o cargo de vereador nas eleições municipais de 2024 no município de São Paulo. 
-
 
 A função `group_by()` não altera os dados, mas prepara o data frame para que possamos aplicar funções de resumo a cada grupo. Portanto, ela é frequentemente utilizada em conjunto com a função `summarise()`.
+
+Obs: após usar a função `group_by()`, é importante lembrar de utilizar a função `ungroup()` para remover o agrupamento, caso não seja mais necessário. Isso pode evitar problemas em operações futuras.
 
 ## Resumindo dados com `summarise()`
 
 A função `summarise()` é utilizada para resumir os dados, calculando estatísticas agregadas. Ela é frequentemente utilizada em conjunto com a função `group_by()`.
 
-
 ```{r}
-soma_votos_validos <- dados_vereadores |>
-  # agrupando por colunas com informações dos candidatos
-  group_by(NM_CANDIDATO, NM_URNA_CANDIDATO, SG_PARTIDO, NM_PARTIDO, DS_SIT_TOT_TURNO) |> 
+quantidade_eleitos_por_partido <- dados_vereadores_eleitos |>
+  # agrupando por colunas com informações dos partidos
+  group_by(SG_PARTIDO, NM_PARTIDO) |> 
   summarise(
-    # contando o número de votos válidos recebidos por cada candidato
-    votos_validos = sum(QT_VOTOS_NOMINAIS_VALIDOS, na.rm = TRUE)
-  )
+    # contando o número de candidatos por grupo
+    quantidade_candidatos_eleitos = n(),  
+  ) |> 
+   # removendo o agrupamento
+  ungroup() 
+
+quantidade_eleitos_por_partido
 ```
 
 ## Ordenando dados com `arrange()`
 
 A função `arrange()` é utilizada para ordenar as linhas de um data frame com base em uma ou mais colunas.
 
-Podemos ordenar os dados de `soma_votos_validos` pela coluna `votos_validos`, utilizando a função `arrange()`. Mas atenção: por padrão, a função `arrange()` ordena os dados em ordem crescente.
+Podemos ordenar os dados de `quantidade_eleitos_por_partido` pela coluna `quantidade_candidatos_eleitos`, utilizando a função `arrange()`. Mas atenção: por padrão, a função `arrange()` ordena os dados em ordem crescente.
 
 ```{r}
-soma_votos_validos |>
-  arrange(votos_validos)
+quantidade_eleitos_por_partido |>
+  arrange(quantidade_candidatos_eleitos)
 ```
 Aparentemente, existem alguns candidatos que não receberam votos válidos.
 
@@ -278,10 +276,10 @@ Aparentemente, existem alguns candidatos que não receberam votos válidos.
 Também podemos ordenar os dados em ordem decrescente, utilizando a função `desc()`:
 
 ```{r}
-soma_votos_validos_ordenados <- soma_votos_validos |>
-  arrange(desc(votos_validos))
+quantidade_eleitos_por_partido_ordenado <- quantidade_eleitos_por_partido |>
+  arrange(desc(quantidade_candidatos_eleitos))
 
-soma_votos_validos_ordenados
+quantidade_eleitos_por_partido_ordenado
 ```
 
 
@@ -291,69 +289,63 @@ Podemos salvar o resultado em um arquivo CSV ou Excel, utilizando as funções `
 
 ```{r}
 #| eval: false
-write_csv(soma_votos_validos_ordenados,
-          "dados/tab-soma-votos-validos.csv")
+write_csv(quantidade_partidos_situacao_ordenado,
+          "dados/tab-quantidade_partidos_situacao_ordenado.csv")
 
-writexl::write_xlsx(soma_votos_validos_ordenados,
-                    "dados/tab-soma-votos-validos.xlsx")
+writexl::write_xlsx(quantidade_partidos_situacao_ordenado,
+                    "dados/tab-quantidade_partidos_situacao_ordenado.xlsx")
 ```
 
-## Unindo tabelas com `left_join()`
+## Exercícios
 
-A função `left_join()` é utilizada para unir duas tabelas com base em uma ou mais colunas em comum (chamada de chave - `key`).
+Com essas funções, podemos explorar diversas perguntas.
 
-Para este exemplo, vamos importar [uma tabela](https://raw.githubusercontent.com/beatrizmilz/ESHT011-21-analise-dados-planejamento-territorial/refs/heads/main/praticas/dados/idhm_sp_2010.csv) que contém informações sobre o IDH (Índice de Desenvolvimento Humano) dos municípios de São Paulo, referente ao ano de 2010. Esses dados são baseados no Censo, mas ainda não temos o IDH calculado para o ano de 2022.
+Aqui estão algumas sugestões de perguntas que você pode tentar responder utilizando as funções apresentadas aqui:
 
+1. Considerando as variáveis de gênero e cor/raça, quantos candidatos(as) a vereador(a) foram eleitos em cada grupo? Qual é a proporção de cada grupo?
+
+::: {.callout-note collapse="true"}
+## Sugestão de código
 ```{r}
-dados_idhm <- read_csv("https://raw.githubusercontent.com/beatrizmilz/ESHT011-21-analise-dados-planejamento-territorial/refs/heads/main/praticas/dados/idhm_sp_2010.csv")
+dados_vereadores_eleitos |> 
+  group_by(DS_GENERO, DS_COR_RACA) |> 
+  summarise(
+    n = n()  # contando o número de candidatos por grupo
+  ) |>
+  mutate(
+    proporcao = round(n / sum(n) * 100, 1)  # calculando a proporção de cada grupo
+  ) |> 
+  arrange(desc(proporcao))
 ```
+:::
 
-Para fazer o join, precisamos garantir que as colunas que vamos utilizar como chave estejam no mesmo formato. Neste caso, vamos utilizar a coluna referente ao código do IBGE como chave para unir as duas tabelas:
 
+2. Qual é a idade média dos candidatos(as) a vereador(a) eleitos? Lembrando que criamos a variável `idade` e salvamos ela na tabela `dados_com_idade` (porém ela tem informações para todos os cargos e não apenas para vereadores(as)).
+
+
+
+::: {.callout-note collapse="true"}
+## Sugestão de código
 ```{r}
-names(dados_idhm)
-names(dados)
+dados_com_idade |> 
+  filter(DS_CARGO == "VEREADOR", DS_SIT_TOT_TURNO %in% c("ELEITO POR MÉDIA", "ELEITO POR QP")) |> 
+  summarise(idade_media = mean(idade, na.rm = TRUE))
 ```
 
-É importante que a variável que usaremos como chave esteja no mesmo formato nas duas tabelas. Usamos a função `class()` para verificar o tipo de dado de cada coluna:
+:::
 
+
+3. Considerando a variável de grau de instrução, quantos candidatos(as) a vereador(a) foram eleitos em cada grupo? 
+
+::: {.callout-note collapse="true"}
+## Sugestão de código
 ```{r}
-class(dados$codigo_ibge)
-class(dados_idhm$muni_id)
+dados_vereadores_eleitos |> 
+  count(DS_GRAU_INSTRUCAO) |> 
+  mutate(
+    proporcao = round(n / sum(n) * 100, 1)  # calculando a proporção de cada grupo
+  ) |> 
+  arrange(desc(proporcao))
 ```
 
-Obs: caso as colunas não estejam no mesmo formato, podemos utilizar a função `mutate()` para alterar o tipo de dado de uma das colunas, junto com funções como `as.character()` ou `as.numeric()`, dependendo da classe de dado que queremos.
-
-Agora podemos unir as duas tabelas utilizando a função `left_join()`. Essa função irá manter todas as linhas da tabela da esquerda (`dados`) e adicionar as colunas da tabela da direita (`dados_idhm`) onde houver correspondência na chave especificada.
-
-```{r}
-dados_unidos <- left_join(
-  # tabela da esquerda
-  dados, 
-  # tabela da direita
-  dados_idhm, 
-  # o argumento `by` especifica as colunas que serão utilizadas como chave para o join
-  by = c("codigo_ibge" = "muni_id")
-  )
-```
-
-A nova tabela `dados_unidos` agora contém todas as colunas de ambas as tabelas, com os dados do IDH adicionados aos municípios correspondentes. Se um município não tiver um valor correspondente na tabela de IDH, as colunas relacionadas ao IDH terão valores `NA`.
-
-```{r}
-glimpse(dados_unidos)
-```
-
-
-Podemos salvar os dados unidos em um arquivo CSV ou Excel, utilizando as funções `readr::write_csv()` ou `writexl::write_excel_csv()`:
-
-```{r}
-#| eval: false
-write_csv(dados_unidos,
-          "dados/dados-join-cetesb-idhm.csv")
-```
-
-
-Este caso é um exemplo de um join bem simples, onde temos uma chave única em cada tabela. No entanto, existem outros tipos de joins, como `inner_join()`, `right_join()`, `full_join()`, que podem ser utilizados dependendo da situação.
-
-
-
+:::
