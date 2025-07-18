@@ -2,9 +2,6 @@
 title: "Dia 1 - Ambientação e conceitos básicos"
 ---
 
-::: {.callout-warning}
-Página em construção.
-:::
 
 
 ### O que é o R?

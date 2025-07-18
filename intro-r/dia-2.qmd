@@ -2,18 +2,14 @@
 title: "Dia 2 - Importação e transformação"
 ---
 
-::: {.callout-warning}
-Página em construção.
-:::
-
 ## Importação de dados
 
 ### Dados utilizados: Eleicões de 2024
 
-Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre as eleições de 2024. A base de dados original foi baixada do [portal de dados abertos do TSE](https://dadosabertos.tse.jus.br/dataset/resultados-2024): Votação nominal por município e zona. Para facilitar o download dos dados durante a atividade, [filtramos a tabela](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R) para dados do município de São Paulo.
+Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre candidatos para as eleições de 2024. A base de dados original foi baixada do [portal de dados abertos do TSE](https://dadosabertos.tse.jus.br/dataset/candidatos-2024): Candidatos - 2024 . Para facilitar o download dos dados durante a atividade, [filtramos a tabela](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R) para dados do município de São Paulo.
 
 
-Junto aos dados, o TSE disponibiliza também um arquivo chamado [`leiame.pdf`](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/leiame.pdf), com informações importantes sobre os dados, significado dos nomes das colunas, entre outros. É importante ler estes arquivos, quando disponibilizados.
+Junto aos dados, o TSE disponibiliza também um arquivo chamado [`leiame.pdf`](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/leiame-candidatos.pdf), com informações importantes sobre os dados, significado dos nomes das colunas, entre outros. É importante ler estes arquivos, quando disponibilizados.
 
 Vamos utilizar o pacote tidyverse para importar os dados, então é importante garantir que ele esteja carregado:
 

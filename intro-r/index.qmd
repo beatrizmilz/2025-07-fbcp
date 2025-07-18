@@ -2,10 +2,6 @@
 title: "Introdução ao R para análise de dados"
 ---
 
-::: {.callout-warning}
-Página em construção.
-:::
-
 
 **Descrição**: Nesta oficina, será apresentado o ambiente de programação R e o IDE RStudio. A oficina é voltada para iniciantes e não é necessário conhecimento prévio de programação. Durante a oficina, serão abordadas tarefas básicas como iniciar um projeto, importar tabelas, realizar filtros, criar tabelas de resumo (com estatísticas descritivas), e exportar resultados. Esta oficina faz parte de uma trilha de treinamentos voltada para iniciantes, fornecendo uma base para quem deseja aprender a analisar dados com R.
 
