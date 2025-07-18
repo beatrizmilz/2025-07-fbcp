@@ -18,6 +18,19 @@ votacao_muni_sp <- votacao_candidato_munzona_2024_SP |>
 # Salvar dados ------------------------------------------------------
 write_csv2(votacao_muni_sp, "intro-r/dados/votacao_muni_sp.csv")
 
+votos_vereadores_muni_sp <- votacao_muni_sp |> 
+  filter(DT_ELEICAO == "06/10/2024", DS_CARGO == "Vereador") |> 
+  select(DS_ELEICAO, NM_MUNICIPIO,NR_ZONA, DS_CARGO, tidyselect::contains("CANDIDATO"),
+                          tidyselect::contains("PARTIDO"), DS_SIT_TOT_TURNO, QT_VOTOS_NOMINAIS_VALIDOS) |> 
+  group_by(DS_CARGO,SQ_CANDIDATO, NR_CANDIDATO, NM_CANDIDATO, NR_PARTIDO, SG_PARTIDO, NM_PARTIDO, DS_SIT_TOT_TURNO) |> 
+  summarise(
+    SOMA_QT_VOTOS_NOMINAIS_VALIDOS = sum(QT_VOTOS_NOMINAIS_VALIDOS, na.rm = TRUE),
+    .groups = "drop"
+  ) |> 
+  arrange(desc(SOMA_QT_VOTOS_NOMINAIS_VALIDOS)) 
+
+write_csv2(votos_vereadores_muni_sp, "intro-r/dados/votos_vereadores_muni_sp.csv")
+
 # Dados sobre candidatos ---------------------------------------------
 # Dados baixados de https://dadosabertos.tse.jus.br/dataset/candidatos-2024 
 
