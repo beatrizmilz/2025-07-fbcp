@@ -1,0 +1,27 @@
+---
+title: "Dia 2 - Customizando gráficos com ggplot2"
+---
+
+::: {.callout-warning}
+Página em construção.
+:::
+
+
+## Visualizando os dados
+
+Para quem está começando, recomendo utilizar o pacote `esquisse`, que facilita a criação de gráficos com o `ggplot2`.
+
+```{r}
+#| eval: false
+install.packages("esquisse", dependencies =  TRUE)
+```
+
+Depois de instalar o pacote, podemos carregá-lo e utilizar a função `esquisser()` para criar gráficos interativos:
+
+```{r}
+#| eval: false
+library(esquisse)
+esquisser(dados)
+```
+
+O `esquisse` oferece uma interface amigável para criar gráficos com o `ggplot2`, permitindo que você arraste e solte variáveis, escolha tipos de gráficos e customize os elementos do gráfico. Ao usar o `esquisse`, você pode gerar o código correspondente ao gráfico que está criando, e depois copiá-lo para o seu script R.

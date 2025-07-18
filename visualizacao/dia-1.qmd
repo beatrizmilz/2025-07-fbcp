@@ -1,0 +1,108 @@
+---
+title: "Dia 1 - Conhecendo o ggplot2"
+---
+
+::: {.callout-warning}
+Página em construção.
+:::
+
+## Carregando pacotes
+
+O pacote `tidyverse` é um conjunto de pacotes, e nele encontramos pacotes úteis para essa oficina, como o `readr`, `dplyr` e `ggplot2`. Vamos carregá-lo:
+
+```{r}
+library(tidyverse)
+```
+
+
+## Importando dados
+
+Nesta oficina, utilizaremos dados das eleições municipais de 2024 em São Paulo. Os dados foram baixados do portal de dados abertos do TSE e estão disponíveis no repositório do curso.
+
+```{r}
+dados_candidatos <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_muni_sp.csv")
+```
+
+```{r}
+bens_candidatos <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/bens_candidatos_muni_sp.csv")
+```
+
+```{r}
+votos_vereadores <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/votos_vereadores_muni_sp.csv")
+```
+
+
+
+
+## O que é o ggplot2?
+
+O `ggplot2` é o principal pacote para criação de gráficos em R. Ele é baseado na [gramática de gráficos](https://link.springer.com/book/10.1007/0-387-28695-0), uma teoria que apresenta uma forma de descrever os componentes de um gráfico.
+
+O `ggplot2` faz parte do [tidyverse](https://www.tidyverse.org/).
+
+## Vocabulário do ggplot2
+
+A gramática de gráficos é composta por alguns elementos, sendo os seguintes principais para iniciar:
+
+-   **Dados**: um data frame que contém os dados que serão apresentados
+
+-   ***Aesthetics*** **(atributos estéticos)**: mapeamento dos dados para propriedades visuais do gráfico, como eixos, cor, forma e tamanho
+
+-   **Geometrias**: formas geométricas que representam os dados, como pontos, linhas e barras.
+
+Vamos fazer um exemplo simples, explorando cada um desses elementos. Para iniciar o gráfico, podemos informar os dados para a função `ggplot()`:
+
+```{r}
+#| label: exemplo-ggplot2-1
+#| code-annotations: below
+votos_vereadores |>
+  ggplot()
+```
+
+A função `ggplot()` cria um objeto gráfico vazio. Para informar quais são as variáveis que serão mapeadas nos eixos `x` e `y`, utilizamos a função `aes()`:
+
+```{r}
+#| label: exemplo-ggplot2-2
+#| code-annotations: below
+votos_vereadores |>
+  # recortando apenas as 10 primeiras linhas
+  head(10) |> 
+  ggplot() + 
+  aes(x = SOMA_QT_VOTOS_NOMINAIS_VALIDOS, y = NM_CANDIDATO)
+```
+
+O gráfico criado apresenta os eixos, e os valores possíveis. Porém ainda não tem nenhuma geometria para representar os dados. Para adicionar uma geometria ao gráfico, utilizamos funções da família `geom_*`. Nesse caso, vamos utilizar a função `geom_col()` para criar um gráfico de colunas:
+
+```{r}
+#| label: exemplo-ggplot2-3
+votos_vereadores |>
+  head(10) |> 
+  ggplot() + 
+  aes(x = SOMA_QT_VOTOS_NOMINAIS_VALIDOS, y = NM_CANDIDATO) + 
+  geom_col() 
+```
+O gráfico acima apresenta a soma de votos nominais válidos dos 10 primeiros candidatos a vereador mais votados na cidade de São Paulo. Existem alguns problemas nesse gráfico, como a ordem dos candidatos no eixo `y`, que não está adequada (está em ordem alfabética). Vamos descobrir como melhorar isso ao longo da oficina.
+
+Podemos preencher a cor das barras (`fill`) usando uma variável do nosso data frame. Para isso, adicionamos a variável `fill = SG_PARTIDO` dentro da função `aes()`:
+
+```{r}
+#| label: exemplo-ggplot2-4
+votos_vereadores |>
+  head(10) |> 
+  ggplot() + 
+  aes(x = SOMA_QT_VOTOS_NOMINAIS_VALIDOS, y = NM_CANDIDATO, fill = SG_PARTIDO) + 
+  geom_col() 
+```
+
+1.  **Dados:** dados que serão utilizados
+2.  `ggplot()`: função para iniciar o gráfico
+3.  ***Aesthetics*** **(atributos estéticos)**: informando quais variáveis serão utilizadas nos eixos x, y, e outros (como `fill`)
+4.  **Geometria do gráfico:** informando que faremos um gráfico de colunas
+
+::: callout-tip
+**Atenção:** Observe que a cada linha de código, adicionamos um `+` para adicionar um novo elemento ao gráfico.
+
+A partir da função `ggplot()`, sempre utilizamos `+` para adicionar novos elementos ao gráfico.
+:::
+
+
