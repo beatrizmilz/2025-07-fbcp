@@ -21,8 +21,7 @@ book:
     
 lang: pt 
 language:
-  title-block-author-single: "Docente"
-  title-block-author-plural: "Docentes" 
+  title-block-author-single: "Munistrante"
   title-block-published: "Atualizado em"
 
 # bibliography: references.bib
