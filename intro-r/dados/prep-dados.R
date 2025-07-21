@@ -52,6 +52,11 @@ candidatos_muni_sp <- consulta_cand_2024_SP |>
   filter(DS_ELEICAO == "Eleições Municipais 2024", NM_UE == "SÃO PAULO") 
 
 
+candidatos_vereador_com_votos <- candidatos_muni_sp |> 
+  filter(DS_CARGO == "VEREADOR") |>
+  left_join(select(votos_vereadores_muni_sp, NR_CANDIDATO, SOMA_QT_VOTOS_NOMINAIS_VALIDOS), by = c("NR_CANDIDATO")) 
+
+
 bens_candidatos_muni_sp <- bem_candidato_2024_SP |> 
   filter(DS_ELEICAO == "Eleições Municipais 2024", NM_UE == "SÃO PAULO") |> 
   mutate(VR_BEM_CANDIDATO = parse_number(VR_BEM_CANDIDATO, locale = locale(decimal_mark = ","))) 
@@ -59,7 +64,6 @@ bens_candidatos_muni_sp <- bem_candidato_2024_SP |>
 
 # Salvar dados ------------------------------------------------------
 write_csv2(candidatos_muni_sp, "intro-r/dados/candidatos_muni_sp.csv")
+write_csv2(candidatos_vereador_com_votos, "intro-r/dados/candidatos_vereador_com_votos.csv")
 write_csv2(bens_candidatos_muni_sp, "intro-r/dados/bens_candidatos_muni_sp.csv")
-
-
 

@@ -6,7 +6,7 @@ title: "Dia 2 - Importação e transformação"
 
 ### Dados utilizados: Eleicões de 2024
 
-Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre candidatos para as eleições de 2024. A base de dados original foi baixada do [portal de dados abertos do TSE](https://dadosabertos.tse.jus.br/dataset/candidatos-2024): Candidatos - 2024 . Para facilitar o download dos dados durante a atividade, [filtramos a tabela](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R) para dados do município de São Paulo.
+Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre candidatos para as eleições de 2024. A base de dados original foi baixada do [portal de dados abertos do TSE](https://dadosabertos.tse.jus.br/dataset/candidatos-2024): Candidatos - 2024. Para facilitar o download dos dados durante a atividade, [filtramos a tabela](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R) para dados do município de São Paulo, apenas candidatos(as) para o cargo de Vereador, e unimos com os dados de resultados (soma de votos válidos).
 
 
 Junto aos dados, o TSE disponibiliza também um arquivo chamado [`leiame.pdf`](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/leiame-candidatos.pdf), com informações importantes sobre os dados, significado dos nomes das colunas, entre outros. É importante ler estes arquivos, quando disponibilizados.
@@ -17,19 +17,19 @@ Vamos utilizar o pacote tidyverse para importar os dados, então é importante g
 library(tidyverse)
 ```
 
-O arquivo que queremos importar é [esse aqui: candidatos_muni_sp.csv](https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_muni_sp.csv). Ele é um arquivo `.csv` (CSV = *comma separated values*, ou valores separados por vírgula), porém o separador utilizado é o `;`.
+O arquivo que queremos importar é [esse aqui: candidatos_vereador_com_votos.csv](https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_vereador_com_votos.csv). Ele é um arquivo `.csv` (CSV = *comma separated values*, ou valores separados por vírgula), porém o separador utilizado é o `;`.
 
 Para importar esse arquivo, podemos utilizar a função `read_csv2()` (a função `read_csv()` é utilizada para importar tabelas com valores separados por vírgula):
 
 ```{r}
 #| eval: false
-dados <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_muni_sp.csv")
+dados <- read_csv2("https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_vereador_com_votos.csv")
 ```
 
 Caso o arquivo esteja salvo no projeto, também podemos importar os dados utilizando o caminho relativo do arquivo:
 
 ```{r}
-dados <- read_csv2("dados/candidatos_muni_sp.csv")
+dados <- read_csv2("dados/candidatos_vereador_com_votos.csv")
 ```
 
 
@@ -110,73 +110,24 @@ dados |>
 
 Com apenas uma função, não é tão óbvio o benefício do operador pipe. No entanto, quando começamos a encadear várias funções, ele se torna muito útil. Veremos exemplos disso ao longo desta aula!
 
-## Principais funções do `dplyr`
+## Principais verbos do `dplyr`
 
 O pacote `dplyr` é uma das ferramentas mais poderosas para manipulação de dados no R. Ele oferece uma série de funções que facilitam a transformação e análise de dados. Vamos conhecer algumas das principais funções do `dplyr`:
 
--  `distinct()`: retorna linhas únicas de um data frame (ou um conjunto de colunas), removendo duplicatas.
+-   `select()`: seleciona colunas específicas de um data frame.
+
+-   `arrange()`: ordena as linhas de um data frame com base em uma ou mais colunas.
 
 -   `filter()`: filtra linhas com base em condições específicas.
 
--   `select()`: seleciona colunas específicas de um data frame.
-
 -   `mutate()`: adiciona ou modifica colunas.
 
--   `arrange()`: ordena as linhas de um data frame com base em uma ou mais colunas.
 
 -   `summarise()`: resume os dados, calculando estatísticas agregadas.
 
 -   `group_by()`: agrupa os dados com base em uma ou mais colunas, permitindo aplicar funções de resumo a cada grupo.
 
 Ao apresentar essas funções, não vamos abordar todos os casos de uso, mas sim o básico de cada uma delas. Você pode consultar os materiais extras para aprender mais sobre cada função e suas possibilidades.
-
-## Obtendo linhas únicas com `distinct()`
-
-A função `distinct()` é utilizada para obter os **valores distintos** de um data frame, removendo duplicatas. Ela pode ser aplicada a todas as colunas ou a um subconjunto delas.
-
-Podemos consultar quais são as categorias disponíveis na coluna `DS_CARGO` (Descrição do Cargo), utilizando a função `distinct()`:
-
-```{r}
-dados |> 
-  distinct(DS_CARGO)
-```
-Com isso, sabemos que os dados apresentam resultados para os cargos de vereador, prefeito e vice-prefeito.
-
-Podemos saber também quais são os valores distintos da coluna `DS_SIT_TOT_TURNO` (descrição da situação de totalização da candidata ou candidato no turno):
-
-```{r}
-dados |> 
-  distinct(DS_CARGO, DS_SIT_TOT_TURNO)
-```
-
-Com esses resultados, sabemos que para o cargo de vereador(a), temos as seguintes categorias: [eleito por QP (quociente partidário)](https://www.tse.jus.br/comunicacao/noticias/2024/Marco/quocientes-eleitoral-e-partidario-entenda-como-um-candidato-a-vereador-e-eleito), eleito por média, suplente, não eleito e `#NULO`. Para o cargo de prefeito(a) e vice-prefeito(a), temos as seguintes categorias: eleito, 2º turno, não eleito.
-
-## Filtrando dados com `filter()`
-
-A função `filter()` é utilizada para filtrar linhas de um data frame com base em condições específicas.
-
-Por exemplo, podemos filtrar apenas as linhas com resultados de candidatos(as) a vereador(a), utilizando a coluna `DS_CARGO` (Descrição do Cargo). Para isso, utilizamos o operador de comparação `==` (igualdade):
-
-```{r}
-dados_vereadores <- dados |>
-  filter(DS_CARGO == "VEREADOR")
-
-dados_vereadores
-```
-
-Podemos também filtrar com mais de uma condição. Por exemplo, podemos filtrar apenas os resultados de candidatos(as) a vereador(a) que foram eleitos por quociente partidário (QP) ou por média. Neste caso, usamos o operador `%in%`, que permite verificar se um valor está presente em um vetor (`c()`) de valores.
-
-```{r}
-dados_vereadores_eleitos <- dados_vereadores |>
-  filter(DS_SIT_TOT_TURNO %in% c("ELEITO POR QP", "ELEITO POR MÉDIA"))
-
-dados_vereadores_eleitos
-```
-
-A tabela filtrada tem 55 linhas, ou seja, foram eleitos 55 vereadores(as) na cidade de São Paulo nas eleições de 2024.
-
-
-Ao filtrar, podemos combinar várias condições utilizando os operadores lógicos (como o `|` (OU) e o `!` (NEGAÇÃO)).
 
 ## Selecionando colunas com `select()`
 
@@ -185,16 +136,75 @@ A função `select()` é utilizada para selecionar colunas específicas de um da
 Por exemplo, podemos selecionar apenas um conjunto de colunas de interesse:
 
 ```{r}
-dados_vereadores_eleitos |>
-  select(NM_URNA_CANDIDATO, SG_PARTIDO, NM_PARTIDO)
+dados_selecionados <- dados |>
+  select(NM_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO, SOMA_QT_VOTOS_NOMINAIS_VALIDOS)
+
+dados_selecionados
 ```
 
-Podemos também indicar quais colunas queremos excluir, utilizando o operador `-` antes do nome da coluna. Por exemplo, para excluir as colunas `ano` e `uf`, podemos fazer o seguinte:
+Podemos também indicar quais colunas queremos excluir, utilizando o operador `-` antes do nome da coluna. Por exemplo, para excluir as colunas `DT_GERACAO` e `HH_GERACAO`, podemos:
 
 ```{r}
-dados_vereadores_eleitos |>
+dados |>
   select(-DT_GERACAO, -HH_GERACAO)
 ```
+
+
+## Ordenando dados com `arrange()`
+
+A função `arrange()` é utilizada para ordenar as linhas de um data frame com base em uma ou mais colunas.
+
+Podemos ordenar os dados de `dados_selecionados` pela coluna `SOMA_QT_VOTOS_NOMINAIS_VALIDOS`, utilizando a função `arrange()`. Mas atenção: por padrão, a função `arrange()` ordena os dados em ordem crescente.
+
+```{r}
+dados_selecionados |>
+  arrange(SOMA_QT_VOTOS_NOMINAIS_VALIDOS)
+```
+Aparentemente, existem alguns candidatos que não receberam votos válidos.
+
+
+Também podemos ordenar os dados em ordem decrescente, utilizando a função `desc()`:
+
+```{r}
+dados_selecionados |>
+  arrange(desc(SOMA_QT_VOTOS_NOMINAIS_VALIDOS))
+```
+
+
+## Filtrando dados com `filter()`
+
+A função `filter()` é utilizada para filtrar linhas de um data frame com base em condições específicas.
+
+Por exemplo, podemos filtrar apenas as pessoas candidatas de determinado partido (neste exemplo, da Rede).  Para isso, utilizamos o operador de comparação `==` (igualdade):
+
+```{r}
+dados |>
+  filter(SG_PARTIDO == "REDE")
+```
+
+Podemos também filtrar com mais de uma condição. Por exemplo, podemos filtrar apenas os resultados de candidatos(as) a vereador(a) que foram eleitos por quociente partidário (QP) ou por média. Neste caso, usamos o operador `%in%`, que permite verificar se um valor está presente em um vetor (`c()`) de valores.
+
+```{r}
+dados_vereadores_eleitos <- dados |>
+  filter(DS_SIT_TOT_TURNO %in% c("ELEITO POR QP", "ELEITO POR MÉDIA"))
+
+dados_vereadores_eleitos
+```
+
+A tabela filtrada tem 55 linhas, ou seja, foram eleitos 55 vereadores(as) na cidade de São Paulo nas eleições de 2024.
+
+
+Podemos usar filtros com números também. Por exemplo: quantos(as) candidatos(as) a vereador(a) receberam 100 mil votos válidos ou mais?
+
+```{r}
+dados_vereadores_eleitos |> 
+  filter(SOMA_QT_VOTOS_NOMINAIS_VALIDOS >= 100000)
+```
+
+
+
+Ao filtrar, podemos combinar várias condições utilizando os operadores lógicos (como o `|` (OU) e o `!` (NEGAÇÃO)).
+
 
 ## Adicionando ou modificando colunas com `mutate()`
 
@@ -210,16 +220,12 @@ base_de_dados |>
 
 A função `mutate()` também pode ser utilizada para modificar colunas existentes.
 
-Por exemplo, podemos criar uma coluna nova chamada `idade` a partir da coluna `DT_NASCIMENTO` (data de nascimento) e da data da eleição:
+Por exemplo, podemos criar uma nova coluna chamada `mil_votos_validos`, que representa a quantidade de votos válidos dividida por 1000, para facilitar a leitura dos números:
 
 ```{r}
-dados_com_idade <- dados |>
+dados_vereadores_eleitos |>
   mutate(
-    # convertendo a coluna DT_NASCIMENTO para o formato de data
-    data_de_nascimento = parse_date(DT_NASCIMENTO, format = "%d/%m/%Y"),
-    data_da_eleicao = parse_date(DT_ELEICAO, format = "%d/%m/%Y"),
-    # criando a coluna idade a partir da diferença entre as duas datas
-    idade = floor(interval(data_de_nascimento, data_da_eleicao) / years(1))  # idade em anos 
+    mil_votos_validos = round(SOMA_QT_VOTOS_NOMINAIS_VALIDOS/1000, 2)
   ) 
 ```
 
@@ -230,7 +236,7 @@ A função `group_by()` é utilizada para agrupar os dados com base em uma ou ma
 Por exemplo, podemos agrupar os dados por colunas relacionado aos partidos:
 
 ```{r}
-dados_vereadores_eleitos |>
+dados |>
   group_by(SG_PARTIDO, NM_PARTIDO) 
 ```
 
@@ -243,39 +249,45 @@ Obs: após usar a função `group_by()`, é importante lembrar de utilizar a fun
 A função `summarise()` é utilizada para resumir os dados, calculando estatísticas agregadas. Ela é frequentemente utilizada em conjunto com a função `group_by()`.
 
 ```{r}
-quantidade_eleitos_por_partido <- dados_vereadores_eleitos |>
+dados_por_partido <- dados |>
   # agrupando por colunas com informações dos partidos
   group_by(SG_PARTIDO, NM_PARTIDO) |> 
   summarise(
     # contando o número de candidatos por grupo
-    quantidade_candidatos_eleitos = n(),  
+    quantidade_candidatos = n(),  
+    quantidade_eleitos = sum(DS_SIT_TOT_TURNO %in% c("ELEITO POR QP", "ELEITO POR MÉDIA"), na.rm = TRUE),  # contando o número de candidatos eleitos
+    
+    media_votos_por_cand = mean(SOMA_QT_VOTOS_NOMINAIS_VALIDOS, na.rm = TRUE),  # calculando a média de votos válidos
+    mediana_votos_por_cand = median(SOMA_QT_VOTOS_NOMINAIS_VALIDOS, na.rm = TRUE),  # calculando a mediana de votos válidos
+    soma_votos = sum(SOMA_QT_VOTOS_NOMINAIS_VALIDOS, na.rm = TRUE)  # somando os votos válidos
   ) |> 
    # removendo o agrupamento
-  ungroup() 
+  ungroup() |> 
+  arrange(desc(quantidade_eleitos), desc(soma_votos))
 
-quantidade_eleitos_por_partido
+dados_por_partido
+
+# Checando o número de eleitos
+sum(dados_por_partido$quantidade_eleitos)
 ```
 
-## Ordenando dados com `arrange()`
+## Extra: `count()`
 
-A função `arrange()` é utilizada para ordenar as linhas de um data frame com base em uma ou mais colunas.
-
-Podemos ordenar os dados de `quantidade_eleitos_por_partido` pela coluna `quantidade_candidatos_eleitos`, utilizando a função `arrange()`. Mas atenção: por padrão, a função `arrange()` ordena os dados em ordem crescente.
+A função `count()` é uma forma simplificada de usar `group_by()` e `summarise()`. Ela conta o número de ocorrências de cada grupo e retorna um data frame com as contagens. Por exemplo:
 
 ```{r}
-quantidade_eleitos_por_partido |>
-  arrange(quantidade_candidatos_eleitos)
+dados_vereadores_eleitos |>
+  count(DS_GENERO) 
 ```
-Aparentemente, existem alguns candidatos que não receberam votos válidos.
-
-
-Também podemos ordenar os dados em ordem decrescente, utilizando a função `desc()`:
 
 ```{r}
-quantidade_eleitos_por_partido_ordenado <- quantidade_eleitos_por_partido |>
-  arrange(desc(quantidade_candidatos_eleitos))
+dados_vereadores_eleitos |>
+  count(DS_GRAU_INSTRUCAO) 
+```
 
-quantidade_eleitos_por_partido_ordenado
+```{r}
+dados_vereadores_eleitos |>
+  count(DS_COR_RACA) 
 ```
 
 
@@ -285,63 +297,9 @@ Podemos salvar o resultado em um arquivo CSV ou Excel, utilizando as funções `
 
 ```{r}
 #| eval: false
-write_csv(quantidade_partidos_situacao_ordenado,
-          "dados/tab-quantidade_partidos_situacao_ordenado.csv")
+write_csv(dados_por_partido,
+          "dados/tab-dados_por_partido.csv")
 
-writexl::write_xlsx(quantidade_partidos_situacao_ordenado,
-                    "dados/tab-quantidade_partidos_situacao_ordenado.xlsx")
+writexl::write_xlsx(dados_por_partido,
+                    "dados/tab-dados_por_partido.xlsx")
 ```
-
-## Exercícios
-
-Com essas funções, podemos explorar diversas perguntas.
-
-Aqui estão algumas sugestões de perguntas que você pode tentar responder utilizando as funções apresentadas aqui:
-
-1. Considerando as variáveis de gênero e cor/raça, quantos candidatos(as) a vereador(a) foram eleitos em cada grupo? Qual é a proporção de cada grupo?
-
-::: {.callout-note collapse="true"}
-## Sugestão de código
-```{r}
-dados_vereadores_eleitos |> 
-  group_by(DS_GENERO, DS_COR_RACA) |> 
-  summarise(
-    n = n()  # contando o número de candidatos por grupo
-  ) |>
-  mutate(
-    proporcao = round(n / sum(n) * 100, 1)  # calculando a proporção de cada grupo
-  ) |> 
-  arrange(desc(proporcao))
-```
-:::
-
-
-2. Qual é a idade média dos candidatos(as) a vereador(a) eleitos? Lembrando que criamos a variável `idade` e salvamos ela na tabela `dados_com_idade` (porém ela tem informações para todos os cargos e não apenas para vereadores(as)).
-
-
-
-::: {.callout-note collapse="true"}
-## Sugestão de código
-```{r}
-dados_com_idade |> 
-  filter(DS_CARGO == "VEREADOR", DS_SIT_TOT_TURNO %in% c("ELEITO POR MÉDIA", "ELEITO POR QP")) |> 
-  summarise(idade_media = mean(idade, na.rm = TRUE))
-```
-
-:::
-
-
-3. Considerando a variável de grau de instrução, quantos candidatos(as) a vereador(a) foram eleitos em cada grupo? 
-
-::: {.callout-note collapse="true"}
-## Sugestão de código
-```{r}
-dados_vereadores_eleitos |> 
-  count(DS_GRAU_INSTRUCAO) |> 
-  mutate(
-    proporcao = round(n / sum(n) * 100, 1)  # calculando a proporção de cada grupo
-  ) |> 
-  arrange(desc(proporcao))
-```
-
-:::
