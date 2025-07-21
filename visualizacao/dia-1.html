@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="importando-dados" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="importando-dados"><span class="header-section-number">4.2</span> Importando dados</h2>
-<p>Nesta aula, utilizaremos a tabela preparada na <a href="05_transformacao">aula sobre transformação de dados</a>: <code>"dados/sidra_4092_arrumado.rds"</code>.</p>
+<p>Os dados que utilizaremos nesta oficina são referentes à taxa de desocupação no Brasil, coletados do <a href="https://sidra.ibge.gov.br/">SIDRA</a>. A forma de importação e preparação dos dados está disponível no arquivo <a href="https://github.com/beatrizmilz/2025-07-fbcp/blob/main/visualizacao/dados/prep-dados.R">visualizacao/dados/prep-dados.R</a> no repositório do curso.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -294,11 +294,9 @@ Expanda para fazer download da base de dados
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Caso não tenha o arquivo da tabela que utilizaremos, você pode baixar <a href="https://github.com/ipeadata-lab/curso_r_intro_202409/raw/refs/heads/main/dados_output/sidra_4092_arrumado.rds">aqui</a>, e copiar o arquivo para a pasta <code>dados_output</code> do seu projeto.</p>
-<p>Outra opção é executar o código abaixo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-24"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-24-1"><a href="#annotated-cell-24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-24" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-24-2" class="code-annotation-target"><a href="#annotated-cell-24-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">"https://github.com/ipeadata-lab/curso_r_intro_202409/raw/refs/heads/main/dados_output/sidra_4092_arrumado.rds"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-24" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-24-2" class="code-annotation-target"><a href="#annotated-cell-24-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">"https://github.com/beatrizmilz/2025-07-fbcp/raw/refs/heads/main/visualizacao/dados/sidra_4092_arrumado.rds"</span>,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-24" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-24-3" class="code-annotation-target"><a href="#annotated-cell-24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">destfile =</span> <span class="st">"dados/sidra_4092_arrumado.rds"</span>,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-24" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-24-4" class="code-annotation-target"><a href="#annotated-cell-24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"wb"</span></span>
 <span id="annotated-cell-24-5"><a href="#annotated-cell-24-5" aria-hidden="true" tabindex="-1"></a>  )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -324,7 +322,7 @@ Expanda para fazer download da base de dados
 </div>
 <p>Vamos carregar a base de dados com a função <code>read_rds()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"dados/sidra_4092_arrumado.rds"</span>)</span>
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"dados/sidra_4092_arrumado.rds"</span>)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
@@ -339,7 +337,7 @@ Expanda para fazer download da base de dados
 </dl>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 1,350
+<pre><code>Rows: 1,431
 Columns: 16
 $ uf                                       &lt;chr&gt; "Amapá", "Bahia", "Rio Grande…
 $ uf_codigo                                &lt;fct&gt; 16, 29, 24, 27, 13, 28, 25, 2…
@@ -464,7 +462,6 @@ Dica
 <h2 data-number="4.5" class="anchored" data-anchor-id="criando-gráficos-exploratórios"><span class="header-section-number">4.5</span> Criando gráficos exploratórios</h2>
 <p>Vamos criar alguns gráficos exploratórios com os dados de desocupação por trimestre e por estado.</p>
 <p>Gráficos exploratórios são utilizados para entender melhor os dados, identificar padrões e tendências, e verificar a presença de outliers. Neste momento, não estamos preocupados com a estética do gráfico, mas sim com a interpretação dos dados.</p>
-<p>Falaremos como <a href="#customizando-gr%C3%A1ficos">customizar os gráficos mais adiante</a>.</p>
 <section id="tipos-de-gráficos" class="level3" data-number="4.5.1">
 <h3 data-number="4.5.1" class="anchored" data-anchor-id="tipos-de-gráficos"><span class="header-section-number">4.5.1</span> Tipos de gráficos</h3>
 <section id="gráficos-de-dispersão" class="level4" data-number="4.5.1.1">
@@ -473,7 +470,7 @@ Dica
 <p>O gráfico de dispersão é utilizado para visualizar a relação entre duas variáveis quantitativas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"BA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"SP"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao) <span class="sc">+</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -492,7 +489,7 @@ Dica
 <p>Vamos criar um gráfico de linha para visualizar a evolução da taxa de desocupação ao longo dos trimestres para apenas um estado:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"BA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"SP"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao) <span class="sc">+</span> </span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -525,7 +522,7 @@ Dica
 <p>Podemos combinar diferentes geometrias no mesmo gráfico. Por exemplo, podemos adicionar um gráfico de pontos ao gráfico de linhas que criamos anteriormente:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"BA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"SP"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao) <span class="sc">+</span> </span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
@@ -541,7 +538,7 @@ Dica
 <p>Outro ponto importante é que a <strong>ordem das geometrias importa</strong>! No exemplo acima, a linha é desenhada primeiro, e os pontos são adicionados por cima da linha. Se trocarmos a ordem das geometrias, os pontos serão desenhados primeiro, e a linha será desenhada por cima dos pontos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"BA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"SP"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao) <span class="sc">+</span> </span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
@@ -673,7 +670,7 @@ Dica
 <p>Vamos ver um exemplo de gráfico de linhas apresentado anteriormente, adicionamos pontos e usamos a cor para representar o período que consideramos como pandemia (<code>color</code>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-18"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-18-1"><a href="#annotated-cell-18-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-18-2" class="code-annotation-target"><a href="#annotated-cell-18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"BA"</span>) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-18-2" class="code-annotation-target"><a href="#annotated-cell-18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"SP"</span>) <span class="sc">|&gt;</span></span>
 <span id="annotated-cell-18-3"><a href="#annotated-cell-18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">periodo_pandemia =</span> <span class="fu">as.character</span>(periodo_pandemia)) <span class="sc">|&gt;</span></span>
 <span id="annotated-cell-18-4"><a href="#annotated-cell-18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="annotated-cell-18-5"><a href="#annotated-cell-18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao) <span class="sc">+</span> </span>

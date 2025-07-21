@@ -255,19 +255,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Aviso
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Página em construção.</p>
-</div>
-</div>
 <section id="carregando-pacotes" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="carregando-pacotes"><span class="header-section-number">5.1</span> Carregando pacotes</h2>
 <p>O pacote <code>tidyverse</code> é um conjunto de pacotes, e nele encontramos pacotes úteis para essa oficina, como o <code>readr</code>, <code>dplyr</code> e <code>ggplot2</code>. Vamos carregá-lo:</p>
@@ -291,7 +278,7 @@ Aviso
 <h2 data-number="5.2" class="anchored" data-anchor-id="importando-dados"><span class="header-section-number">5.2</span> Importando dados</h2>
 <p>Vamos carregar a base de dados com a função <code>read_rds()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"dados/sidra_4092_arrumado.rds"</span>)</span>
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"dados/sidra_4092_arrumado.rds"</span>)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
@@ -306,7 +293,7 @@ Aviso
 </dl>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 1,350
+<pre><code>Rows: 1,431
 Columns: 16
 $ uf                                       &lt;chr&gt; "Amapá", "Bahia", "Rio Grande…
 $ uf_codigo                                &lt;fct&gt; 16, 29, 24, 27, 13, 28, 25, 2…
@@ -478,7 +465,7 @@ $ periodo_pandemia                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
 <p>No caso do nosso exemplo, queremos ordenar as barras de acordo com o valor de <code>perc_desocupacao</code>, e a variável categórica que queremos ordenar é <code>uf</code>. Portanto, usaremos <code>fct_reorder(uf, perc_desocupacao)</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>grafico_ordenado <span class="ot">&lt;-</span> dados_tri_recente <span class="sc">|&gt;</span> </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">uf_fct =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(uf, perc_desocupacao)) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">uf_fct =</span> <span class="fu">fct_reorder</span>(uf, perc_desocupacao)) <span class="sc">|&gt;</span></span>
 <span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-4" class="code-annotation-target"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> uf_fct, <span class="at">x =</span> perc_desocupacao) <span class="sc">+</span></span>
 <span id="annotated-cell-8-5"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
@@ -552,7 +539,7 @@ $ periodo_pandemia                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
 <p>O <code>{ggplot2}</code> apresenta várias funções para trabalhar com as escalas dos gráficos. Essas funções apresentam o prefixo <code>scale_</code>.</p>
 <p>Vamos explorar algumas dessas funções para trabalhar com escalas, mas lembre-se que existem muitas outras funções para customizar as escalas dos gráficos.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -561,7 +548,7 @@ Lista de funções para escalas no ggplot2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">"package:ggplot2"</span>) <span class="sc">|&gt;</span> </span>
@@ -675,7 +662,7 @@ Lista de funções para escalas no ggplot2
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -684,7 +671,7 @@ Lista de funções para escalas de cores no ggplot2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>Para o atributo <code>color</code>:</li>
@@ -744,21 +731,21 @@ Lista de funções para escalas de cores no ggplot2
 <p>Vamos criar um gráfico de linhas para visualizar a evolução da taxa de desocupação desde 2022 para a Bahia, e customizar a escala do eixo <code>x</code> para apresentar as datas de forma a apresentar uma marcação cada 3 meses:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-12-2" class="code-annotation-target"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"BA"</span>, ano <span class="sc">&gt;=</span> <span class="dv">2022</span>) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-12-2" class="code-annotation-target"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"SP"</span>, ano <span class="sc">&gt;=</span> <span class="dv">2019</span>) <span class="sc">|&gt;</span></span>
 <span id="annotated-cell-12-3"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="annotated-cell-12-4"><a href="#annotated-cell-12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao) <span class="sc">+</span></span>
 <span id="annotated-cell-12-5"><a href="#annotated-cell-12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="annotated-cell-12-6"><a href="#annotated-cell-12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-12-7" class="code-annotation-target"><a href="#annotated-cell-12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-12-8" class="code-annotation-target"><a href="#annotated-cell-12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="st">"3 months"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-12-8" class="code-annotation-target"><a href="#annotated-cell-12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="st">"6 months"</span>,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-12-9" class="code-annotation-target"><a href="#annotated-cell-12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_labels =</span> <span class="st">"%m/%Y"</span>,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-12-10" class="code-annotation-target"><a href="#annotated-cell-12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="st">"1 month"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-12-10" class="code-annotation-target"><a href="#annotated-cell-12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="st">"1 months"</span></span>
 <span id="annotated-cell-12-11"><a href="#annotated-cell-12-11" aria-hidden="true" tabindex="-1"></a>  )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="1">Filtrando os dados para a Bahia, e considerando apenas os dados a partir de 2022.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="1">Filtrando os dados para o estado de São Paulo, e considerando apenas os dados a partir de 2019.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="2">2</dt>
 <dd>
@@ -794,7 +781,7 @@ Lista de funções para escalas de cores no ggplot2
 <p>Podemos definir que o eixo <code>y</code> comece em 0 e termine em 20%, utilizando o argumento <code>limits</code> da função <code>scale_y_continuous()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"BA"</span>, ano <span class="sc">&gt;=</span> <span class="dv">2022</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uf_sigla <span class="sc">==</span> <span class="st">"SP"</span>, ano <span class="sc">&gt;=</span> <span class="dv">2019</span>) <span class="sc">|&gt;</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao) <span class="sc">+</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
@@ -890,15 +877,15 @@ Lista de funções para escalas de cores no ggplot2
 <p>Vamos usar essas funções para customizar o gráfico apresentado no exemplo acima:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-19"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-19-1" class="code-annotation-target"><a href="#annotated-cell-19-1" aria-hidden="true" tabindex="-1"></a>grafico_customizado <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-19-2"><a href="#annotated-cell-19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(regiao <span class="sc">==</span> <span class="st">"Sul"</span>) <span class="sc">|&gt;</span> </span>
+<span id="annotated-cell-19-2"><a href="#annotated-cell-19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(regiao <span class="sc">==</span> <span class="st">"Sudeste"</span>) <span class="sc">|&gt;</span> </span>
 <span id="annotated-cell-19-3"><a href="#annotated-cell-19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="annotated-cell-19-4"><a href="#annotated-cell-19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> trimestre_inicio, <span class="at">y =</span> perc_desocupacao, <span class="at">color =</span> uf) <span class="sc">+</span>  </span>
 <span id="annotated-cell-19-5"><a href="#annotated-cell-19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-19-6" class="code-annotation-target"><a href="#annotated-cell-19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-19-7" class="code-annotation-target"><a href="#annotated-cell-19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-19-7" class="code-annotation-target"><a href="#annotated-cell-19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">end =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-19-8" class="code-annotation-target"><a href="#annotated-cell-19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">breaks =</span> <span class="st">"1 year"</span>, <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-19-9" class="code-annotation-target"><a href="#annotated-cell-19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="annotated-cell-19-10"><a href="#annotated-cell-19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Taxa de desocupação por estado na região Sul"</span>,</span>
+<span id="annotated-cell-19-10"><a href="#annotated-cell-19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Taxa de desocupação por estado na região Sudeste"</span>,</span>
 <span id="annotated-cell-19-11"><a href="#annotated-cell-19-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dados da PNAD Contínua Trimestral"</span>,</span>
 <span id="annotated-cell-19-12"><a href="#annotated-cell-19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Fonte dos dados: SIDRA/IBGE."</span>,</span>
 <span id="annotated-cell-19-13"><a href="#annotated-cell-19-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Estado"</span>,</span>
