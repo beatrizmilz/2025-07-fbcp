@@ -2,9 +2,9 @@
 
 Olá! Este site contém os materiais para as duas oficinas de R que serão oferecidas durante o [IX Fórum Brasileiro de Pós-Graduação em Ciência Política](https://www.even3.com.br/ix-fbcp/):
 
-  - [Introdução ao R para análise de dados](intro-r/index.qmd) - 21 e 22/07/2025
+  - [Introdução ao R para análise de dados](intro-r/index.qmd) - 22 e 23/07/2025
  
-  - [Introdução à elaboração de gráficos com ggplot2 e R](visualizacao/index.qmd) - 23 e 24/07/2025
+  - [Introdução à elaboração de gráficos com ggplot2 e R](visualizacao/index.qmd) - 24 e 25/07/2025
 
 Local: Faculdade de Filosofia, Letras e Ciências Humanas (FFLCH-USP)
 
@@ -23,9 +23,11 @@ Para isso, siga as instruções disponíveis na página [Orientações pré-ofic
 
 ## Materiais complementares
 
--   Materiais do curso [Introdução à análise de dados no R](https://ipeadata-lab.github.io/curso_r_intro_202409/)
+- Livro [R para Ciência de Dados 2ed](https://cienciadedatos.github.io/pt-r4ds/)
 
--   Livro [R para Ciência de Dados 2ed](https://cienciadedatos.github.io/pt-r4ds/)
+- Livro [Ciência de dados em R](https://livro.curso-r.com/)
+
+-   Materiais do curso [Introdução à análise de dados no R](https://ipeadata-lab.github.io/curso_r_intro_202409/)
 
 - Material da disciplina [Análise de Dados para as Ciências Sociais](https://jonnyphillips.github.io/Ciencia_de_Dados/), por Jonathan Phillips.
 
