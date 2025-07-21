@@ -1,8 +1,0 @@
----
-title: "Dia 2 - Customizando gráficos com ggplot2"
----
-
-::: {.callout-warning}
-Página em construção.
-:::
-
