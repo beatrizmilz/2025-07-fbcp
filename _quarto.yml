@@ -17,9 +17,9 @@ book:
         - intro-r/dia-1.qmd
         - intro-r/dia-2.qmd
     - part: visualizacao/index.qmd
-#      chapters: 
-#        - visualizacao/dia-1.qmd
-#        - visualizacao/dia-2.qmd        
+      chapters:
+        - visualizacao/dia-1.qmd
+        - visualizacao/dia-2.qmd
 
 lang: pt 
 language:

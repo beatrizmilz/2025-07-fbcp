@@ -7,21 +7,438 @@ Página em construção.
 :::
 
 
-## Visualizando os dados
+## Carregando pacotes
 
-Para quem está começando, recomendo utilizar o pacote `esquisse`, que facilita a criação de gráficos com o `ggplot2`.
+O pacote `tidyverse` é um conjunto de pacotes, e nele encontramos pacotes úteis para essa oficina, como o `readr`, `dplyr` e `ggplot2`. Vamos carregá-lo:
+
+```{r}
+library(tidyverse)
+```
+
+## Importando dados
+
+Vamos carregar a base de dados com a função `read_rds()`:
+
+```{r}
+#| message: false
+dados <- readr::read_rds("dados/sidra_4092_arrumado.rds") # <1>
+glimpse(dados) # <2>
+```
+
+1.  Importando os dados
+2.  Espiando a tabela: quantas colunas tem? quantas linhas? quais são as variáveis?
+
+Vamos criar também um objeto contendo apenas aos dados referentes ao trimestre mais recente, para usar em alguns exemplos:
+
+```{r}
+dados_tri_recente <- dados |>  
+  filter(trimestre_inicio == max(trimestre_inicio)) # <1>
+```
+
+1.  Filtrando os dados para o trimestre mais recente
+
+## Customizando gráficos
+
+Até aqui, discutimos como criar gráficos exploratórios, e vimos que o `ggplot2` nos permite criar gráficos de forma simples e rápida.
+
+Após criar um gráfico exploratório que nos ajuda a entender os dados, podemos customizá-lo para apresentar a outras pessoas, ou para publicar em relatórios e artigos.
+
+Vamos ver algumas formas de customizar os gráficos criados, partindo do gráfico a seguir:
+
+```{r}
+#| label: customizando-base
+
+grafico_base <- dados_tri_recente |> 
+  ggplot() + 
+  aes(y = uf, x = perc_desocupacao) + 
+  geom_col()
+
+grafico_base
+```
+
+### Ordenando as barras
+
+O ggplot ordena variáveis de texto em ordem alfabética. No exemplo acima, as barras estão ordenadas de acordo com a ordem alfabética dos estados: o Acre aparece primeiro, e o Tocantins, por último.
+
+Podemos ordenar as barras do gráfico de colunas de acordo com o valor da variável numérica utilizada (neste caso, `perc_desocupacao`).
+
+Para isso, precisaremos transformar a variável de texto `uf` em uma variável categórica ordenada (ou seja, um fator/*factor*).
+
+#### Fatores / *factors*
+
+Os fatores são utilizados para representar variáveis categóricas no R. Essas variáveis podem ser ordenadas ou não.
+
+Eles são úteis para controlar a ordem de exibição de variáveis categóricas em gráficos, tabelas e modelos estatísticos.
+
+Vamos criar um exemplo simples, criando uma tabela com a escolaridade de um grupo de pessoas:
+
+```{r}
+escolaridade <- tibble(
+  nome = c(
+    "Maria",
+    "João",
+    "Pedro",
+    "Ana",
+    "José",
+    "Carlos",
+    "Mariana",
+    "Lucas"
+  ),
+  escolaridade_concluida = c(
+    "Pós-graduação",
+    "Ensino Médio",
+    "Ensino Fundamental II",
+    "Ensino Fundamental I",
+    "Ensino Fundamental I",
+    "Sem instrução",
+    "Ensino Técnico",
+    "Graduação"
+  )
+)
+```
+
+Se ordenarmos a tabela pela variável `escolaridade_concluida`, veremos que a ordem é alfabética:
+
+```{r}
+escolaridade |> 
+  arrange(escolaridade_concluida)
+```
+
+Para que, por exemplo, a variável `escolaridade_concluida` seja ordenada de acordo com a ordem de escolaridade, podemos transformá-la em um fator ordenado, utilizando a função `factor()`, e indicando quais são os níveis (*levels*) de escolaridade, na ordem que queremos que apareçam:
+
+```{r}
+escolaridade |>
+  mutate(
+  escolaridade_concluida_fct = factor( # <1>
+    escolaridade_concluida, # <2>
+    levels = c( # <3>
+      "Sem instrução", 
+      "Ensino Fundamental I", 
+      "Ensino Fundamental II", 
+      "Ensino Médio", 
+      "Ensino Técnico", 
+      "Graduação", 
+      "Pós-graduação" 
+      ) # <3>
+    ) # <1>
+  ) |> 
+  arrange(escolaridade_concluida_fct) # <4>
+```
+
+1.  Criando uma nova variável `escolaridade_concluida_fct` usando a função `factor()`
+2.  Variável que será transformada em fator
+3.  Níveis de escolaridade, na ordem que queremos que apareçam
+4.  Ordenando a tabela pela variável `escolaridade_concluida_fct`
+
+A função `factor()` é do R base, ou seja, não precisamos carregar nenhum pacote adicional para utilizá-la. Porém o pacote `{forcats}` (que faz parte do `{tidyverse}`) apresenta funções mais avançadas para trabalhar com fatores, como a função `fct_reorder()` que veremos a seguir.
+
+#### Voltando ao exemplo do gráfico de colunas
+
+Para isso, precisamos fazer uma transformação na variável `uf`, para que ela seja ordenada de acordo com o valor de `perc_desocupacao`. Isso deve ser feito **antes** de criar o gráfico.
+
+Vamos ordenar as barras do gráfico anterior, de acordo com o valor de `perc_desocupacao`. Para isso, utilizamos a função `fct_reorder()` do pacote `{forcats}`.
+
+A função `fct_reorder()` recebe dois argumentos:
+
+-   A variável que queremos ordenar (a variável **categórica** que é representada em cada coluna)
+-   A variável que será utilizada para ordenar a primeira variável (a variável **numérica** que será utilizada para ordenar a variável categórica)
+
+No caso do nosso exemplo, queremos ordenar as barras de acordo com o valor de `perc_desocupacao`, e a variável categórica que queremos ordenar é `uf`. Portanto, usaremos `fct_reorder(uf, perc_desocupacao)`.
+
+```{r}
+#| label: customizando-ordenacao
+
+grafico_ordenado <- dados_tri_recente |> 
+  mutate(uf_fct = forcats::fct_reorder(uf, perc_desocupacao)) |> # <1>
+  ggplot() + 
+  aes(y = uf_fct, x = perc_desocupacao) + # <2>
+  geom_col()
+
+grafico_ordenado
+```
+
+1.  Como explicado acima, criamos uma nova variável `uf_fct` que será utilizada para ordenar as barras de acordo com o valor de `perc_desocupacao`.
+2.  Utilizaremos no eixo `y` a variável criada: `uf_fct`.
+
+### Títulos e rótulos
+
+Por padrão, o gráfico está sem título, e com o nome das colunas nos eixos `x` e `y` e legendas.
+
+O `ggplot2` permite adicionar títulos e rótulos aos gráficos, utilizando a função `labs()`. Essa função apresenta vários argumentos, que podem ser divididos em dois grupos:
+
+-   Elementos com informações do gráficos: sempre estão disponíveis. Ex: `title`, `subtitle`, `caption`...
+
+-   Elementos relacionados aos atributos estéticos: dependem dos mapeamentos feitos com a função `aes()`. Ex: `x`, `y`, `fill`, `color`...
+
+Vamos adicionar um título ao gráfico anterior, e rótulos para os eixos `x` e `y`:
+
+```{r}
+grafico_com_labels <- grafico_ordenado + 
+  labs(
+    title = "Taxa de desocupação por estado", # <1>
+    subtitle = "Dados para o 2º trimestre 2024",  # <1>
+    caption = "Fonte: Dados referentes à PNAD Contínua Trimestral, obtidos no SIDRA/IBGE.",  # <1>
+    x = "Taxa de desocupação (%)",  # <2>
+    y = "Estado", # <2>
+  )
+
+grafico_com_labels
+```
+
+1.  Informações sobre o gráfico
+2.  Atributos estéticos utilizados
+
+### Escalas
+
+O `{ggplot2}` apresenta várias funções para trabalhar com as escalas dos gráficos. Essas funções apresentam o prefixo `scale_`.
+
+Vamos explorar algumas dessas funções para trabalhar com escalas, mas lembre-se que existem muitas outras funções para customizar as escalas dos gráficos.
+
+::: {.callout-tip collapse="true"}
+## Lista de funções para escalas no ggplot2
+
+```{r}
+ls("package:ggplot2") |> 
+  stringr::str_subset("^scale_")
+```
+:::
+
+#### Escalas de cores
+
+O `{ggplot2}` utiliza uma paleta de cores padrão bem colorida, observada nos exemplos anteriores. Porém podemos mudar a paleta de cores, ou até mesmo criar uma paleta de cores personalizada.
+
+As funções de escalas de cores dependerão do tipo de atributo estético utilizado: `fill` ou `color`.
+
+Quando usamos o atributo `fill`, utilizamos as funções `scale_fill_*()`. Quando usamos o atributo `color`, utilizamos as funções `scale_color_*()`.
+
+Outro ponto importante é que as funções de escalas de cores dependem do **tipo de variável** que estamos mapeando.
+
+Por exemplo, se a variável mapeada é categórica, podemos usar a função `scale_fill_viridis_d()` para preencher as barras com uma paleta de cores viridis. Utilizando o exemplo que estamos criando, a região pode ser mapeada no atributo `fill`:
+
+```{r}
+#| label: customizando-cores-fill-categorico
+dados_tri_recente |> 
+  ggplot() +
+  aes(y = uf, x = perc_desocupacao) +
+  geom_col(aes(fill = regiao)) +
+  scale_fill_viridis_d() 
+```
+
+Mas se a variável mapeada é numérica, podemos usar a função `scale_fill_viridis_c()`. O exemplo abaixo apresenta um gráfico similar, mas mapeando a variável `perc_desocupacao` no atributo `fill`:
+
+```{r}
+#| label: customizando-cores-fill-numerico
+dados_tri_recente |> 
+  ggplot() +
+  aes(y = uf, x = perc_desocupacao) +
+  geom_col(aes(fill = perc_desocupacao)) +
+  scale_fill_viridis_c()
+```
+
+::: {.callout-tip collapse="true"}
+## Lista de funções para escalas de cores no ggplot2
+
+-   Para o atributo `color`:
+
+```{r}
+ls("package:ggplot2") |> 
+  stringr::str_subset("^scale_") |> 
+  stringr::str_subset("color")
+```
+
+-   Para o atributo `fill`:
+
+```{r}
+ls("package:ggplot2") |> 
+  stringr::str_subset("^scale_") |> 
+  stringr::str_subset("fill")
+```
+:::
+
+
+Um ponto a ter atenção é o tipo de paleta de cores usadas. Algumas paletas de cores são mais adequadas para representar variáveis categóricas, enquanto outras são mais adequadas para representar variáveis numéricas. Veja a imagem com exemplos de paletas categóricas, sequenciais, e divergentes:
+
+![Fonte da imagem: [tmap book](https://r-tmap.github.io/tmap-book).](images/07_tipos_paletas.png)
+
+#### Escalas de eixos: datas
+
+Podemos customizar a escala do eixo `x` para apresentar as datas de forma personalizada. É importante que, para isso, a variável seja do tipo `Date` ou `Datetime`.
+
+Para isso, utilizamos a função `scale_x_date()`. Ela apresenta alguns argumentos importantes:
+
+-   `breaks`: indica a frequência das marcações no eixo `x`. Alguns exemplos são: `"1 month"` (marcação a cada mês), `"3 months"` (marcação a cada 3 meses), "1 year" (marcação a cada ano), entre outros.
+
+-   `date_labels`: formato da data que será apresentado. Alguns exemplos são: `"%m/%Y"` (mês/ano), `"%d/%m/%Y"` (dia/mês/ano), `"%b/%Y"` (mês abreviado/ano), entre outros.
+
+Vamos criar um gráfico de linhas para visualizar a evolução da taxa de desocupação desde 2022 para a Bahia, e customizar a escala do eixo `x` para apresentar as datas de forma a apresentar uma marcação cada 3 meses:
+
+```{r}
+#| label: customizando-escala-data
+dados |>
+  filter(uf_sigla == "BA", ano >= 2022) |> # <1>
+  ggplot() +
+  aes(x = trimestre_inicio, y = perc_desocupacao) +
+  geom_line() +
+  geom_point() +
+  scale_x_date( # <2>
+    breaks = "3 months", # <3>
+    date_labels = "%m/%Y", # <4>
+    minor_breaks = "1 month" # <5>
+  ) # <2> 
+```
+
+1.  Filtrando os dados para a Bahia, e considerando apenas os dados a partir de 2022.
+2.  Customizando a escala de data no eixo `x`.
+3.  Queremos que a marcação apareça a cada 3 meses.
+4.  Formato da data que será apresentado (mês/ano).
+5.  A *minor break* é uma linha que aparece entre as marcações principais, porém sem indicar uma legenda. Neste caso, queremos que apareça a cada mês.
+
+#### Escalas de eixos: numérico
+
+Podemos customizar a escala dos eixos `x` e/ou `y` quando estamos mapeando variáveis numéricas utilizando as funções `scale_x_continuous()` e `scale_y_continuous()`.
+
+O gráfico apresentado no exemplo anterior (onde configuramos a escala de datas) está com o eixo `y` limitado na faixa onde os dados são encontrados (11% à 18%). Porém, precisamos ter cuidado ao limitar os eixos, pois isso pode distorcer a visualização dos dados.
+
+Podemos definir que o eixo `y` comece em 0 e termine em 20%, utilizando o argumento `limits` da função `scale_y_continuous()`:
+
+```{r}
+#| label: customizando-escala-numerica
+dados |>
+  filter(uf_sigla == "BA", ano >= 2022) |>
+  ggplot() +
+  aes(x = trimestre_inicio, y = perc_desocupacao) +
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(limits = c(0, 20))
+```
+
+### Temas
+
+Os gráficos que criamos até aqui utilizam o tema padrão do `{ggplot2}` (podemos identificar facilmente pelo fundo cinza). 
+
+Porém existem funções para customizar o tema dos gráficos, alterando a cor de fundo, a cor dos textos, a fonte, entre outros elementos.
+
+#### `{ggplot2}`
+
+O `{ggplot2}` apresenta alguns temas que podem ser utilizados nos gráficos, utilizando funções com o prefixo `theme_*()`:
+
+```{r}
+ls("package:ggplot2") |> 
+  stringr::str_subset("^theme_") 
+```
+
+Por exemplo, podemos alterar o tema do gráfico `grafico_ordenado` (criado anteriormente) para o tema `theme_minimal()`:
+
+```{r}
+#| label: customizando-tema-ggplot2
+grafico_com_labels + 
+  theme_minimal()
+```
+
+#### `{ggthemes}`
+
+O pacote `{ggthemes}` apresenta vários temas adicionais que podem ser utilizados nos gráficos criados com o `{ggplot2}`.
 
 ```{r}
 #| eval: false
-install.packages("esquisse", dependencies =  TRUE)
+install.packages("ggthemes") # <1>
 ```
 
-Depois de instalar o pacote, podemos carregá-lo e utilizar a função `esquisser()` para criar gráficos interativos:
+1.  Caso não tenha o pacote instalado, utilize essa linha de código para instalar o pacote.
+
+A lista abaixo apresenta os temas disponíveis no pacote `{ggthemes}`:
 
 ```{r}
-#| eval: false
-library(esquisse)
-esquisser(dados)
+library(ggthemes)
+ls("package:ggthemes") |> 
+  stringr::str_subset("^theme_") 
 ```
 
-O `esquisse` oferece uma interface amigável para criar gráficos com o `ggplot2`, permitindo que você arraste e solte variáveis, escolha tipos de gráficos e customize os elementos do gráfico. Ao usar o `esquisse`, você pode gerar o código correspondente ao gráfico que está criando, e depois copiá-lo para o seu script R.
+Podemos usar o tema `theme_economist()` para customizar o gráfico `grafico_com_labels`:
+
+```{r}
+#| fig-height: 6
+#| label: customizando-tema-ggthemes
+grafico_com_labels + 
+  ggthemes::theme_economist()
+```
+
+### Usando as funções de customização
+
+Nos exemplos acima, apresentamos algumas funções para customizar os gráficos criados com o `{ggplot2}`.
+
+Vamos usar essas funções para customizar o gráfico apresentado no exemplo acima:
+
+```{r}
+#| label: customizando-grafico-completo
+grafico_customizado <- dados |> # <1>
+  filter(regiao == "Sul") |> 
+  ggplot() + 
+  aes(x = trimestre_inicio, y = perc_desocupacao, color = uf) +  
+  geom_line() + 
+  theme_light() + # <2>
+  scale_color_viridis_d() + # <3>
+  scale_x_date(breaks = "1 year", date_labels = "%Y") + # <4>
+  labs( # <5>
+    title = "Taxa de desocupação por estado na região Sul",
+    subtitle = "Dados da PNAD Contínua Trimestral",
+    caption = "Fonte dos dados: SIDRA/IBGE.",
+    color = "Estado",
+    x = "Ano",
+    y = "Taxa de desocupação (%)"
+  ) # <5>
+
+grafico_customizado
+```
+
+1.  Vamos salvar o resultado do gráfico em um objeto.
+2.  Utilizando o tema `theme_ipea()` do pacote `{ipeaplot}`.
+3.  Utilizando a função `scale_color_ipea()` (do pacote `{ipeaplot}`) com paleta de cores `Orange-Blue`.
+4.  Customizando a escala de data no eixo `x`: apresentar uma marcação a cada ano.
+5.  Adicionando títulos e rótulos ao gráfico.
+
+## Salvando os gráficos
+
+Podemos salvar o gráfico em um arquivo, para utilizá-lo posteriormente. Para isso, criamos um objeto contendo o gráfico que queremos salvar, e utilizamos a função `ggsave()`.
+
+A função `ggsave()` salva o gráfico em um arquivo, e apresenta dois argumentos principais:
+
+-   `filename`: nome do arquivo onde o gráfico será salvo
+
+-   `plot`: objeto contendo o gráfico que será salvo
+
+Essa função também apresenta alguns argumentos para customizar como o gráfico será salvo, como:
+
+-   `width`: largura do gráfico
+
+-   `height`: altura do gráfico
+
+-   `units`: unidade de medida para a largura e altura do gráfico
+
+-   `dpi`: resolução do gráfico (quanto maior o valor, melhor a qualidade da imagem)
+
+Vamos utilizar o gráfico customizado criado anteriormente (salvo no objeto `grafico_customizado`), e salvar em um arquivo utilizando a função `ggsave()`:
+
+```{r}
+# fs::dir_create("graficos/")
+ggsave( # <1>
+  filename = "graficos/grafico_customizado.png", # <2>
+  plot = grafico_customizado, # <3>
+  width = 7, # <4>
+  height = 5, # <5>
+  dpi = 300 # <6>
+)
+```
+
+1.  Função para salvar o gráfico.
+2.  Nome do arquivo onde o gráfico será salvo.
+3.  Objeto contendo o gráfico que será salvo.
+4.  Largura do gráfico.
+5.  Altura do gráfico.
+6.  Resolução do gráfico.
+
+Podemos verificar se o gráfico foi salvo corretamente, utilizando a função `file.exists()`:
+
+```{r}
+file.exists("graficos/grafico_customizado.png")
+```
