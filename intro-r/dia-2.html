@@ -181,12 +181,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../visualizacao/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introdução à elaboração de gráficos com ggplot2 e R</span></span></a>
-  </div>
-</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introdução à elaboração de gráficos com ggplot2 e R</span></span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -204,16 +202,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#transformação-de-dados" id="toc-transformação-de-dados" class="nav-link" data-scroll-target="#transformação-de-dados"><span class="header-section-number">3.2</span> Transformação de dados</a></li>
   <li><a href="#conhecendo-o-operador-pipe" id="toc-conhecendo-o-operador-pipe" class="nav-link" data-scroll-target="#conhecendo-o-operador-pipe"><span class="header-section-number">3.3</span> Conhecendo o operador pipe (<code>|&gt;</code>)</a></li>
-  <li><a href="#principais-funções-do-dplyr" id="toc-principais-funções-do-dplyr" class="nav-link" data-scroll-target="#principais-funções-do-dplyr"><span class="header-section-number">3.4</span> Principais funções do <code>dplyr</code></a></li>
-  <li><a href="#obtendo-linhas-únicas-com-distinct" id="toc-obtendo-linhas-únicas-com-distinct" class="nav-link" data-scroll-target="#obtendo-linhas-únicas-com-distinct"><span class="header-section-number">3.5</span> Obtendo linhas únicas com <code>distinct()</code></a></li>
-  <li><a href="#filtrando-dados-com-filter" id="toc-filtrando-dados-com-filter" class="nav-link" data-scroll-target="#filtrando-dados-com-filter"><span class="header-section-number">3.6</span> Filtrando dados com <code>filter()</code></a></li>
-  <li><a href="#selecionando-colunas-com-select" id="toc-selecionando-colunas-com-select" class="nav-link" data-scroll-target="#selecionando-colunas-com-select"><span class="header-section-number">3.7</span> Selecionando colunas com <code>select()</code></a></li>
+  <li><a href="#principais-verbos-do-dplyr" id="toc-principais-verbos-do-dplyr" class="nav-link" data-scroll-target="#principais-verbos-do-dplyr"><span class="header-section-number">3.4</span> Principais verbos do <code>dplyr</code></a></li>
+  <li><a href="#selecionando-colunas-com-select" id="toc-selecionando-colunas-com-select" class="nav-link" data-scroll-target="#selecionando-colunas-com-select"><span class="header-section-number">3.5</span> Selecionando colunas com <code>select()</code></a></li>
+  <li><a href="#ordenando-dados-com-arrange" id="toc-ordenando-dados-com-arrange" class="nav-link" data-scroll-target="#ordenando-dados-com-arrange"><span class="header-section-number">3.6</span> Ordenando dados com <code>arrange()</code></a></li>
+  <li><a href="#filtrando-dados-com-filter" id="toc-filtrando-dados-com-filter" class="nav-link" data-scroll-target="#filtrando-dados-com-filter"><span class="header-section-number">3.7</span> Filtrando dados com <code>filter()</code></a></li>
   <li><a href="#adicionando-ou-modificando-colunas-com-mutate" id="toc-adicionando-ou-modificando-colunas-com-mutate" class="nav-link" data-scroll-target="#adicionando-ou-modificando-colunas-com-mutate"><span class="header-section-number">3.8</span> Adicionando ou modificando colunas com <code>mutate()</code></a></li>
   <li><a href="#agrupando-dados-com-group_by" id="toc-agrupando-dados-com-group_by" class="nav-link" data-scroll-target="#agrupando-dados-com-group_by"><span class="header-section-number">3.9</span> Agrupando dados com <code>group_by()</code></a></li>
   <li><a href="#resumindo-dados-com-summarise" id="toc-resumindo-dados-com-summarise" class="nav-link" data-scroll-target="#resumindo-dados-com-summarise"><span class="header-section-number">3.10</span> Resumindo dados com <code>summarise()</code></a></li>
-  <li><a href="#ordenando-dados-com-arrange" id="toc-ordenando-dados-com-arrange" class="nav-link" data-scroll-target="#ordenando-dados-com-arrange"><span class="header-section-number">3.11</span> Ordenando dados com <code>arrange()</code></a></li>
+  <li><a href="#extra-count" id="toc-extra-count" class="nav-link" data-scroll-target="#extra-count"><span class="header-section-number">3.11</span> Extra: <code>count()</code></a></li>
   <li><a href="#escrevendo-dados-com-write_csv-ou-writexlwrite_xlsx" id="toc-escrevendo-dados-com-write_csv-ou-writexlwrite_xlsx" class="nav-link" data-scroll-target="#escrevendo-dados-com-write_csv-ou-writexlwrite_xlsx"><span class="header-section-number">3.12</span> Escrevendo dados com <code>write_csv()</code> ou <code>writexl::write_xlsx()</code></a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">3.13</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/beatrizmilz/2025-07-fbcp/edit/main/intro-r/dia-2.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/beatrizmilz/2025-07-fbcp/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li><li><a href="https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dia-2.qmd" class="toc-action"><i class="bi empty"></i>Ver o código fonte</a></li></ul></div></nav>
     </div>
@@ -230,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Docente</div>
+    <div class="quarto-title-meta-heading">Munistrante</div>
     <div class="quarto-title-meta-contents">
              <p><a href="https://www.beamilz.com/">Beatriz Milz</a> <a href="mailto:milz.bea@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
@@ -249,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.1" class="anchored" data-anchor-id="importação-de-dados"><span class="header-section-number">3.1</span> Importação de dados</h2>
 <section id="dados-utilizados-eleicões-de-2024" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="dados-utilizados-eleicões-de-2024"><span class="header-section-number">3.1.1</span> Dados utilizados: Eleicões de 2024</h3>
-<p>Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre candidatos para as eleições de 2024. A base de dados original foi baixada do <a href="https://dadosabertos.tse.jus.br/dataset/candidatos-2024">portal de dados abertos do TSE</a>: Candidatos - 2024 . Para facilitar o download dos dados durante a atividade, <a href="https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R">filtramos a tabela</a> para dados do município de São Paulo.</p>
+<p>Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre candidatos para as eleições de 2024. A base de dados original foi baixada do <a href="https://dadosabertos.tse.jus.br/dataset/candidatos-2024">portal de dados abertos do TSE</a>: Candidatos - 2024. Para facilitar o download dos dados durante a atividade, <a href="https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R">filtramos a tabela</a> para dados do município de São Paulo, apenas candidatos(as) para o cargo de Vereador, e unimos com os dados de resultados (soma de votos válidos).</p>
 <p>Junto aos dados, o TSE disponibiliza também um arquivo chamado <a href="https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/leiame-candidatos.pdf"><code>leiame.pdf</code></a>, com informações importantes sobre os dados, significado dos nomes das colunas, entre outros. É importante ler estes arquivos, quando disponibilizados.</p>
 <p>Vamos utilizar o pacote tidyverse para importar os dados, então é importante garantir que ele esteja carregado:</p>
 <div class="cell">
@@ -267,23 +264,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
-<p>O arquivo que queremos importar é <a href="https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_muni_sp.csv">esse aqui: candidatos_muni_sp.csv</a>. Ele é um arquivo <code>.csv</code> (CSV = <em>comma separated values</em>, ou valores separados por vírgula), porém o separador utilizado é o <code>;</code>.</p>
+<p>O arquivo que queremos importar é <a href="https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_vereador_com_votos.csv">esse aqui: candidatos_vereador_com_votos.csv</a>. Ele é um arquivo <code>.csv</code> (CSV = <em>comma separated values</em>, ou valores separados por vírgula), porém o separador utilizado é o <code>;</code>.</p>
 <p>Para importar esse arquivo, podemos utilizar a função <code>read_csv2()</code> (a função <code>read_csv()</code> é utilizada para importar tabelas com valores separados por vírgula):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_muni_sp.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://raw.githubusercontent.com/beatrizmilz/2025-07-fbcp/refs/heads/main/intro-r/dados/candidatos_vereador_com_votos.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Caso o arquivo esteja salvo no projeto, também podemos importar os dados utilizando o caminho relativo do arquivo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"dados/candidatos_muni_sp.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"dados/candidatos_vereador_com_votos.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 1040 Columns: 50
+<pre><code>Rows: 1016 Columns: 51
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ";"
 chr  (31): DT_GERACAO, NM_TIPO_ELEICAO, DS_ELEICAO, DT_ELEICAO, TP_ABRANGENC...
-dbl  (18): ANO_ELEICAO, CD_TIPO_ELEICAO, NR_TURNO, CD_ELEICAO, SG_UE, CD_CAR...
+dbl  (19): ANO_ELEICAO, CD_TIPO_ELEICAO, NR_TURNO, CD_ELEICAO, SG_UE, CD_CAR...
 time  (1): HH_GERACAO
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
@@ -381,49 +378,50 @@ Nota
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1040</code></pre>
+<pre><code>[1] 1016</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 50</code></pre>
+<pre><code>[1] 51</code></pre>
 </div>
 </div>
 <p>A função <code>colnames()</code> nos mostra os nomes das colunas:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "DT_GERACAO"                    "HH_GERACAO"                   
- [3] "ANO_ELEICAO"                   "CD_TIPO_ELEICAO"              
- [5] "NM_TIPO_ELEICAO"               "NR_TURNO"                     
- [7] "CD_ELEICAO"                    "DS_ELEICAO"                   
- [9] "DT_ELEICAO"                    "TP_ABRANGENCIA"               
-[11] "SG_UF"                         "SG_UE"                        
-[13] "NM_UE"                         "CD_CARGO"                     
-[15] "DS_CARGO"                      "SQ_CANDIDATO"                 
-[17] "NR_CANDIDATO"                  "NM_CANDIDATO"                 
-[19] "NM_URNA_CANDIDATO"             "NM_SOCIAL_CANDIDATO"          
-[21] "NR_CPF_CANDIDATO"              "DS_EMAIL"                     
-[23] "CD_SITUACAO_CANDIDATURA"       "DS_SITUACAO_CANDIDATURA"      
-[25] "TP_AGREMIACAO"                 "NR_PARTIDO"                   
-[27] "SG_PARTIDO"                    "NM_PARTIDO"                   
-[29] "NR_FEDERACAO"                  "NM_FEDERACAO"                 
-[31] "SG_FEDERACAO"                  "DS_COMPOSICAO_FEDERACAO"      
-[33] "SQ_COLIGACAO"                  "NM_COLIGACAO"                 
-[35] "DS_COMPOSICAO_COLIGACAO"       "SG_UF_NASCIMENTO"             
-[37] "DT_NASCIMENTO"                 "NR_TITULO_ELEITORAL_CANDIDATO"
-[39] "CD_GENERO"                     "DS_GENERO"                    
-[41] "CD_GRAU_INSTRUCAO"             "DS_GRAU_INSTRUCAO"            
-[43] "CD_ESTADO_CIVIL"               "DS_ESTADO_CIVIL"              
-[45] "CD_COR_RACA"                   "DS_COR_RACA"                  
-[47] "CD_OCUPACAO"                   "DS_OCUPACAO"                  
-[49] "CD_SIT_TOT_TURNO"              "DS_SIT_TOT_TURNO"             </code></pre>
+<pre><code> [1] "DT_GERACAO"                     "HH_GERACAO"                    
+ [3] "ANO_ELEICAO"                    "CD_TIPO_ELEICAO"               
+ [5] "NM_TIPO_ELEICAO"                "NR_TURNO"                      
+ [7] "CD_ELEICAO"                     "DS_ELEICAO"                    
+ [9] "DT_ELEICAO"                     "TP_ABRANGENCIA"                
+[11] "SG_UF"                          "SG_UE"                         
+[13] "NM_UE"                          "CD_CARGO"                      
+[15] "DS_CARGO"                       "SQ_CANDIDATO"                  
+[17] "NR_CANDIDATO"                   "NM_CANDIDATO"                  
+[19] "NM_URNA_CANDIDATO"              "NM_SOCIAL_CANDIDATO"           
+[21] "NR_CPF_CANDIDATO"               "DS_EMAIL"                      
+[23] "CD_SITUACAO_CANDIDATURA"        "DS_SITUACAO_CANDIDATURA"       
+[25] "TP_AGREMIACAO"                  "NR_PARTIDO"                    
+[27] "SG_PARTIDO"                     "NM_PARTIDO"                    
+[29] "NR_FEDERACAO"                   "NM_FEDERACAO"                  
+[31] "SG_FEDERACAO"                   "DS_COMPOSICAO_FEDERACAO"       
+[33] "SQ_COLIGACAO"                   "NM_COLIGACAO"                  
+[35] "DS_COMPOSICAO_COLIGACAO"        "SG_UF_NASCIMENTO"              
+[37] "DT_NASCIMENTO"                  "NR_TITULO_ELEITORAL_CANDIDATO" 
+[39] "CD_GENERO"                      "DS_GENERO"                     
+[41] "CD_GRAU_INSTRUCAO"              "DS_GRAU_INSTRUCAO"             
+[43] "CD_ESTADO_CIVIL"                "DS_ESTADO_CIVIL"               
+[45] "CD_COR_RACA"                    "DS_COR_RACA"                   
+[47] "CD_OCUPACAO"                    "DS_OCUPACAO"                   
+[49] "CD_SIT_TOT_TURNO"               "DS_SIT_TOT_TURNO"              
+[51] "SOMA_QT_VOTOS_NOMINAIS_VALIDOS"</code></pre>
 </div>
 </div>
 <p>A função <code>head()</code> nos mostra as primeiras linhas da base de dados, e a função <code>tail()</code> nos mostra as últimas linhas:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 50
+<pre><code># A tibble: 6 × 51
   DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
   &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
 1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
@@ -432,7 +430,7 @@ Nota
 4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
-# ℹ 44 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
+# ℹ 45 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
 #   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
 #   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
 #   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
@@ -442,16 +440,16 @@ Nota
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 50
+<pre><code># A tibble: 6 × 51
   DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
   &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
 1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 2 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 3 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
-5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        2
+5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
-# ℹ 44 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
+# ℹ 45 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
 #   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
 #   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
 #   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
@@ -464,58 +462,59 @@ Nota
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 1,040
-Columns: 50
-$ DT_GERACAO                    &lt;chr&gt; "18/07/2025", "18/07/2025", "18/07/2025"…
-$ HH_GERACAO                    &lt;time&gt; 12:30:11, 12:30:11, 12:30:11, 12:30:11,…
-$ ANO_ELEICAO                   &lt;dbl&gt; 2024, 2024, 2024, 2024, 2024, 2024, 2024…
-$ CD_TIPO_ELEICAO               &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…
-$ NM_TIPO_ELEICAO               &lt;chr&gt; "ELEIÇÃO ORDINÁRIA", "ELEIÇÃO ORDINÁRIA"…
-$ NR_TURNO                      &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-$ CD_ELEICAO                    &lt;dbl&gt; 619, 619, 619, 619, 619, 619, 619, 619, …
-$ DS_ELEICAO                    &lt;chr&gt; "Eleições Municipais 2024", "Eleições Mu…
-$ DT_ELEICAO                    &lt;chr&gt; "06/10/2024", "06/10/2024", "06/10/2024"…
-$ TP_ABRANGENCIA                &lt;chr&gt; "MUNICIPAL", "MUNICIPAL", "MUNICIPAL", "…
-$ SG_UF                         &lt;chr&gt; "SP", "SP", "SP", "SP", "SP", "SP", "SP"…
-$ SG_UE                         &lt;dbl&gt; 71072, 71072, 71072, 71072, 71072, 71072…
-$ NM_UE                         &lt;chr&gt; "SÃO PAULO", "SÃO PAULO", "SÃO PAULO", "…
-$ CD_CARGO                      &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, …
-$ DS_CARGO                      &lt;chr&gt; "VEREADOR", "VEREADOR", "VEREADOR", "VER…
-$ SQ_CANDIDATO                  &lt;dbl&gt; 250002371355, 250002371356, 250002371351…
-$ NR_CANDIDATO                  &lt;dbl&gt; 36541, 36222, 36364, 36333, 77042, 77737…
-$ NM_CANDIDATO                  &lt;chr&gt; "GENTIL ALVES DOS SANTOS NETO", "JOSÉ SI…
-$ NM_URNA_CANDIDATO             &lt;chr&gt; "GENTIL VIGILANTE", "JOSÉ LIMA DO TRANSP…
-$ NM_SOCIAL_CANDIDATO           &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#NU…
-$ NR_CPF_CANDIDATO              &lt;dbl&gt; -4, -4, -4, -4, -4, -4, -4, -4, -4, -4, …
-$ DS_EMAIL                      &lt;chr&gt; "NÃO DIVULGÁVEL", "NÃO DIVULGÁVEL", "NÃO…
-$ CD_SITUACAO_CANDIDATURA       &lt;dbl&gt; -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, …
-$ DS_SITUACAO_CANDIDATURA       &lt;chr&gt; "#NE", "#NE", "#NE", "#NE", "#NE", "#NE"…
-$ TP_AGREMIACAO                 &lt;chr&gt; "PARTIDO ISOLADO", "PARTIDO ISOLADO", "P…
-$ NR_PARTIDO                    &lt;dbl&gt; 36, 36, 36, 36, 77, 77, 77, 77, 77, 77, …
-$ SG_PARTIDO                    &lt;chr&gt; "AGIR", "AGIR", "AGIR", "AGIR", "SOLIDAR…
-$ NM_PARTIDO                    &lt;chr&gt; "AGIR", "AGIR", "AGIR", "AGIR", "SOLIDAR…
-$ NR_FEDERACAO                  &lt;dbl&gt; -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, …
-$ NM_FEDERACAO                  &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#NU…
-$ SG_FEDERACAO                  &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#NU…
-$ DS_COMPOSICAO_FEDERACAO       &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#NU…
-$ SQ_COLIGACAO                  &lt;dbl&gt; 250001762261, 250001762261, 250001762261…
-$ NM_COLIGACAO                  &lt;chr&gt; "PARTIDO ISOLADO", "PARTIDO ISOLADO", "P…
-$ DS_COMPOSICAO_COLIGACAO       &lt;chr&gt; "AGIR", "AGIR", "AGIR", "AGIR", "SOLIDAR…
-$ SG_UF_NASCIMENTO              &lt;chr&gt; "SP", "BA", "SP", "SP", "SP", "MG", "SP"…
-$ DT_NASCIMENTO                 &lt;chr&gt; "23/05/1968", "26/11/1960", "23/08/1958"…
-$ NR_TITULO_ELEITORAL_CANDIDATO &lt;chr&gt; "039430770141", "093136380124", "1381485…
-$ CD_GENERO                     &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 4, 4, 4, 2…
-$ DS_GENERO                     &lt;chr&gt; "MASCULINO", "MASCULINO", "MASCULINO", "…
-$ CD_GRAU_INSTRUCAO             &lt;dbl&gt; 8, 6, 8, 6, 8, 8, 8, 8, 8, 5, 5, 6, 8, 4…
-$ DS_GRAU_INSTRUCAO             &lt;chr&gt; "SUPERIOR COMPLETO", "ENSINO MÉDIO COMPL…
-$ CD_ESTADO_CIVIL               &lt;dbl&gt; 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 9, 3, 3…
-$ DS_ESTADO_CIVIL               &lt;chr&gt; "CASADO(A)", "CASADO(A)", "CASADO(A)", "…
-$ CD_COR_RACA                   &lt;chr&gt; "01", "01", "02", "01", "02", "03", "01"…
-$ DS_COR_RACA                   &lt;chr&gt; "BRANCA", "BRANCA", "PRETA", "BRANCA", "…
-$ CD_OCUPACAO                   &lt;dbl&gt; 254, 531, 923, 923, 999, 923, 157, 169, …
-$ DS_OCUPACAO                   &lt;chr&gt; "VIGILANTE", "MOTORISTA DE VEÍCULOS DE T…
-$ CD_SIT_TOT_TURNO              &lt;dbl&gt; 4, -1, -1, -1, 4, 4, 4, 4, 4, 4, 4, 4, 4…
-$ DS_SIT_TOT_TURNO              &lt;chr&gt; "NÃO ELEITO", "#NULO", "#NULO", "#NULO",…</code></pre>
+<pre><code>Rows: 1,016
+Columns: 51
+$ DT_GERACAO                     &lt;chr&gt; "18/07/2025", "18/07/2025", "18/07/2025…
+$ HH_GERACAO                     &lt;time&gt; 12:30:11, 12:30:11, 12:30:11, 12:30:11…
+$ ANO_ELEICAO                    &lt;dbl&gt; 2024, 2024, 2024, 2024, 2024, 2024, 202…
+$ CD_TIPO_ELEICAO                &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
+$ NM_TIPO_ELEICAO                &lt;chr&gt; "ELEIÇÃO ORDINÁRIA", "ELEIÇÃO ORDINÁRIA…
+$ NR_TURNO                       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ CD_ELEICAO                     &lt;dbl&gt; 619, 619, 619, 619, 619, 619, 619, 619,…
+$ DS_ELEICAO                     &lt;chr&gt; "Eleições Municipais 2024", "Eleições M…
+$ DT_ELEICAO                     &lt;chr&gt; "06/10/2024", "06/10/2024", "06/10/2024…
+$ TP_ABRANGENCIA                 &lt;chr&gt; "MUNICIPAL", "MUNICIPAL", "MUNICIPAL", …
+$ SG_UF                          &lt;chr&gt; "SP", "SP", "SP", "SP", "SP", "SP", "SP…
+$ SG_UE                          &lt;dbl&gt; 71072, 71072, 71072, 71072, 71072, 7107…
+$ NM_UE                          &lt;chr&gt; "SÃO PAULO", "SÃO PAULO", "SÃO PAULO", …
+$ CD_CARGO                       &lt;dbl&gt; 13, 13, 13, 13, 13, 13, 13, 13, 13, 13,…
+$ DS_CARGO                       &lt;chr&gt; "VEREADOR", "VEREADOR", "VEREADOR", "VE…
+$ SQ_CANDIDATO                   &lt;dbl&gt; 250002371355, 250002371356, 25000237135…
+$ NR_CANDIDATO                   &lt;dbl&gt; 36541, 36222, 36364, 36333, 77042, 7773…
+$ NM_CANDIDATO                   &lt;chr&gt; "GENTIL ALVES DOS SANTOS NETO", "JOSÉ S…
+$ NM_URNA_CANDIDATO              &lt;chr&gt; "GENTIL VIGILANTE", "JOSÉ LIMA DO TRANS…
+$ NM_SOCIAL_CANDIDATO            &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#N…
+$ NR_CPF_CANDIDATO               &lt;dbl&gt; -4, -4, -4, -4, -4, -4, -4, -4, -4, -4,…
+$ DS_EMAIL                       &lt;chr&gt; "NÃO DIVULGÁVEL", "NÃO DIVULGÁVEL", "NÃ…
+$ CD_SITUACAO_CANDIDATURA        &lt;dbl&gt; -3, -3, -3, -3, -3, -3, -3, -3, -3, -3,…
+$ DS_SITUACAO_CANDIDATURA        &lt;chr&gt; "#NE", "#NE", "#NE", "#NE", "#NE", "#NE…
+$ TP_AGREMIACAO                  &lt;chr&gt; "PARTIDO ISOLADO", "PARTIDO ISOLADO", "…
+$ NR_PARTIDO                     &lt;dbl&gt; 36, 36, 36, 36, 77, 77, 77, 77, 77, 77,…
+$ SG_PARTIDO                     &lt;chr&gt; "AGIR", "AGIR", "AGIR", "AGIR", "SOLIDA…
+$ NM_PARTIDO                     &lt;chr&gt; "AGIR", "AGIR", "AGIR", "AGIR", "SOLIDA…
+$ NR_FEDERACAO                   &lt;dbl&gt; -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,…
+$ NM_FEDERACAO                   &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#N…
+$ SG_FEDERACAO                   &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#N…
+$ DS_COMPOSICAO_FEDERACAO        &lt;chr&gt; "#NULO", "#NULO", "#NULO", "#NULO", "#N…
+$ SQ_COLIGACAO                   &lt;dbl&gt; 250001762261, 250001762261, 25000176226…
+$ NM_COLIGACAO                   &lt;chr&gt; "PARTIDO ISOLADO", "PARTIDO ISOLADO", "…
+$ DS_COMPOSICAO_COLIGACAO        &lt;chr&gt; "AGIR", "AGIR", "AGIR", "AGIR", "SOLIDA…
+$ SG_UF_NASCIMENTO               &lt;chr&gt; "SP", "BA", "SP", "SP", "SP", "MG", "SP…
+$ DT_NASCIMENTO                  &lt;chr&gt; "23/05/1968", "26/11/1960", "23/08/1958…
+$ NR_TITULO_ELEITORAL_CANDIDATO  &lt;chr&gt; "039430770141", "093136380124", "138148…
+$ CD_GENERO                      &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 4, 4, 4, …
+$ DS_GENERO                      &lt;chr&gt; "MASCULINO", "MASCULINO", "MASCULINO", …
+$ CD_GRAU_INSTRUCAO              &lt;dbl&gt; 8, 6, 8, 6, 8, 8, 8, 8, 8, 5, 5, 6, 8, …
+$ DS_GRAU_INSTRUCAO              &lt;chr&gt; "SUPERIOR COMPLETO", "ENSINO MÉDIO COMP…
+$ CD_ESTADO_CIVIL                &lt;dbl&gt; 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 9, 3, …
+$ DS_ESTADO_CIVIL                &lt;chr&gt; "CASADO(A)", "CASADO(A)", "CASADO(A)", …
+$ CD_COR_RACA                    &lt;chr&gt; "01", "01", "02", "01", "02", "03", "01…
+$ DS_COR_RACA                    &lt;chr&gt; "BRANCA", "BRANCA", "PRETA", "BRANCA", …
+$ CD_OCUPACAO                    &lt;dbl&gt; 254, 531, 923, 923, 999, 923, 157, 169,…
+$ DS_OCUPACAO                    &lt;chr&gt; "VIGILANTE", "MOTORISTA DE VEÍCULOS DE …
+$ CD_SIT_TOT_TURNO               &lt;dbl&gt; 4, -1, -1, -1, 4, 4, 4, 4, 4, 4, 4, 4, …
+$ DS_SIT_TOT_TURNO               &lt;chr&gt; "NÃO ELEITO", "#NULO", "#NULO", "#NULO"…
+$ SOMA_QT_VOTOS_NOMINAIS_VALIDOS &lt;dbl&gt; NA, NA, NA, NA, 224, 985, 49, 843, 299,…</code></pre>
 </div>
 </div>
 </section>
@@ -534,71 +533,256 @@ $ DS_SIT_TOT_TURNO              &lt;chr&gt; "NÃO ELEITO", "#NULO", "#NULO", "#N
 </div>
 <p>Com apenas uma função, não é tão óbvio o benefício do operador pipe. No entanto, quando começamos a encadear várias funções, ele se torna muito útil. Veremos exemplos disso ao longo desta aula!</p>
 </section>
-<section id="principais-funções-do-dplyr" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="principais-funções-do-dplyr"><span class="header-section-number">3.4</span> Principais funções do <code>dplyr</code></h2>
+<section id="principais-verbos-do-dplyr" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="principais-verbos-do-dplyr"><span class="header-section-number">3.4</span> Principais verbos do <code>dplyr</code></h2>
 <p>O pacote <code>dplyr</code> é uma das ferramentas mais poderosas para manipulação de dados no R. Ele oferece uma série de funções que facilitam a transformação e análise de dados. Vamos conhecer algumas das principais funções do <code>dplyr</code>:</p>
 <ul>
-<li><p><code>distinct()</code>: retorna linhas únicas de um data frame (ou um conjunto de colunas), removendo duplicatas.</p></li>
-<li><p><code>filter()</code>: filtra linhas com base em condições específicas.</p></li>
 <li><p><code>select()</code>: seleciona colunas específicas de um data frame.</p></li>
-<li><p><code>mutate()</code>: adiciona ou modifica colunas.</p></li>
 <li><p><code>arrange()</code>: ordena as linhas de um data frame com base em uma ou mais colunas.</p></li>
+<li><p><code>filter()</code>: filtra linhas com base em condições específicas.</p></li>
+<li><p><code>mutate()</code>: adiciona ou modifica colunas.</p></li>
 <li><p><code>summarise()</code>: resume os dados, calculando estatísticas agregadas.</p></li>
 <li><p><code>group_by()</code>: agrupa os dados com base em uma ou mais colunas, permitindo aplicar funções de resumo a cada grupo.</p></li>
 </ul>
 <p>Ao apresentar essas funções, não vamos abordar todos os casos de uso, mas sim o básico de cada uma delas. Você pode consultar os materiais extras para aprender mais sobre cada função e suas possibilidades.</p>
 </section>
-<section id="obtendo-linhas-únicas-com-distinct" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="obtendo-linhas-únicas-com-distinct"><span class="header-section-number">3.5</span> Obtendo linhas únicas com <code>distinct()</code></h2>
-<p>A função <code>distinct()</code> é utilizada para obter os <strong>valores distintos</strong> de um data frame, removendo duplicatas. Ela pode ser aplicada a todas as colunas ou a um subconjunto delas.</p>
-<p>Podemos consultar quais são as categorias disponíveis na coluna <code>DS_CARGO</code> (Descrição do Cargo), utilizando a função <code>distinct()</code>:</p>
+<section id="selecionando-colunas-com-select" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="selecionando-colunas-com-select"><span class="header-section-number">3.5</span> Selecionando colunas com <code>select()</code></h2>
+<p>A função <code>select()</code> é utilizada para selecionar colunas específicas de um data frame.</p>
+<p>Por exemplo, podemos selecionar apenas um conjunto de colunas de interesse:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(DS_CARGO)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dados_selecionados <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(NM_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO, SOMA_QT_VOTOS_NOMINAIS_VALIDOS)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dados_selecionados</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 1
-  DS_CARGO     
-  &lt;chr&gt;        
-1 VEREADOR     
-2 PREFEITO     
-3 VICE-PREFEITO</code></pre>
+<pre><code># A tibble: 1,016 × 4
+   NM_CANDIDATO               SG_PARTIDO DS_SIT_TOT_TURNO SOMA_QT_VOTOS_NOMINA…¹
+   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt;                             &lt;dbl&gt;
+ 1 GENTIL ALVES DOS SANTOS N… AGIR       NÃO ELEITO                           NA
+ 2 JOSÉ SILVA LIMA            AGIR       #NULO                                NA
+ 3 JOSÉ GILMAR ARAÚJO DOS SA… AGIR       #NULO                                NA
+ 4 OSVALDO BARROS FRANCO      AGIR       #NULO                                NA
+ 5 MÁRCIO PEDRAZA AGUILERA    SOLIDARIE… NÃO ELEITO                          224
+ 6 NEZINHO GONÇALVES NUNES    SOLIDARIE… NÃO ELEITO                          985
+ 7 ANGELA BARBOSA DOS SANTOS  SOLIDARIE… NÃO ELEITO                           49
+ 8 MARCO BATISTA DE OLIVEIRA  SOLIDARIE… NÃO ELEITO                          843
+ 9 RUBENS MASSASHI ITO        SOLIDARIE… NÃO ELEITO                          299
+10 DEIVIDE ALEXANDRE DOS SAN… SOLIDARIE… NÃO ELEITO                          223
+# ℹ 1,006 more rows
+# ℹ abbreviated name: ¹​SOMA_QT_VOTOS_NOMINAIS_VALIDOS</code></pre>
 </div>
 </div>
-<p>Com isso, sabemos que os dados apresentam resultados para os cargos de vereador, prefeito e vice-prefeito.</p>
-<p>Podemos saber também quais são os valores distintos da coluna <code>DS_SIT_TOT_TURNO</code> (descrição da situação de totalização da candidata ou candidato no turno):</p>
+<p>Podemos também indicar quais colunas queremos excluir, utilizando o operador <code>-</code> antes do nome da coluna. Por exemplo, para excluir as colunas <code>DT_GERACAO</code> e <code>HH_GERACAO</code>, podemos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(DS_CARGO, DS_SIT_TOT_TURNO)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>DT_GERACAO, <span class="sc">-</span>HH_GERACAO)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 11 × 2
-   DS_CARGO      DS_SIT_TOT_TURNO
-   &lt;chr&gt;         &lt;chr&gt;           
- 1 VEREADOR      NÃO ELEITO      
- 2 VEREADOR      #NULO           
- 3 VEREADOR      SUPLENTE        
- 4 VEREADOR      ELEITO POR MÉDIA
- 5 VEREADOR      ELEITO POR QP   
- 6 PREFEITO      NÃO ELEITO      
- 7 VICE-PREFEITO NÃO ELEITO      
- 8 VICE-PREFEITO 2º TURNO        
- 9 PREFEITO      ELEITO          
-10 VICE-PREFEITO ELEITO          
-11 PREFEITO      2º TURNO        </code></pre>
+<pre><code># A tibble: 1,016 × 49
+   ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO CD_ELEICAO DS_ELEICAO 
+         &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      
+ 1        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 2        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 3        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 4        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 5        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 6        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 7        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 8        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+ 9        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+10        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
+# ℹ 1,006 more rows
+# ℹ 43 more variables: DT_ELEICAO &lt;chr&gt;, TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;,
+#   SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;, CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;,
+#   SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;, NM_CANDIDATO &lt;chr&gt;,
+#   NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;, NR_CPF_CANDIDATO &lt;dbl&gt;,
+#   DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
+#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
-<p>Com esses resultados, sabemos que para o cargo de vereador(a), temos as seguintes categorias: <a href="https://www.tse.jus.br/comunicacao/noticias/2024/Marco/quocientes-eleitoral-e-partidario-entenda-como-um-candidato-a-vereador-e-eleito">eleito por QP (quociente partidário)</a>, eleito por média, suplente, não eleito e <code>#NULO</code>. Para o cargo de prefeito(a) e vice-prefeito(a), temos as seguintes categorias: eleito, 2º turno, não eleito.</p>
 </section>
-<section id="filtrando-dados-com-filter" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="filtrando-dados-com-filter"><span class="header-section-number">3.6</span> Filtrando dados com <code>filter()</code></h2>
-<p>A função <code>filter()</code> é utilizada para filtrar linhas de um data frame com base em condições específicas.</p>
-<p>Por exemplo, podemos filtrar apenas as linhas com resultados de candidatos(as) a vereador(a), utilizando a coluna <code>DS_CARGO</code> (Descrição do Cargo). Para isso, utilizamos o operador de comparação <code>==</code> (igualdade):</p>
+<section id="ordenando-dados-com-arrange" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="ordenando-dados-com-arrange"><span class="header-section-number">3.6</span> Ordenando dados com <code>arrange()</code></h2>
+<p>A função <code>arrange()</code> é utilizada para ordenar as linhas de um data frame com base em uma ou mais colunas.</p>
+<p>Podemos ordenar os dados de <code>dados_selecionados</code> pela coluna <code>SOMA_QT_VOTOS_NOMINAIS_VALIDOS</code>, utilizando a função <code>arrange()</code>. Mas atenção: por padrão, a função <code>arrange()</code> ordena os dados em ordem crescente.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DS_CARGO <span class="sc">==</span> <span class="st">"VEREADOR"</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>dados_vereadores</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dados_selecionados <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(SOMA_QT_VOTOS_NOMINAIS_VALIDOS)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1,016 × 50
+<pre><code># A tibble: 1,016 × 4
+   NM_CANDIDATO               SG_PARTIDO DS_SIT_TOT_TURNO SOMA_QT_VOTOS_NOMINA…¹
+   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt;                             &lt;dbl&gt;
+ 1 CARLOS ANDRE FURTADO       SOLIDARIE… NÃO ELEITO                            0
+ 2 PAULO CAINE DOS SANTOS SI… MOBILIZA   NÃO ELEITO                            0
+ 3 VAGNER COELHO DO NASCIMEN… DC         NÃO ELEITO                            0
+ 4 GERSON DA CUNHA            SOLIDARIE… NÃO ELEITO                            0
+ 5 VERA LÚCIA SANTOS DE FRAN… AGIR       NÃO ELEITO                            0
+ 6 APARECIDO BESERRA MONTEIRO PSDB       NÃO ELEITO                            0
+ 7 CESAR FERREIRA LONGARES    DC         NÃO ELEITO                            0
+ 8 DIEGO DOS REIS SILVA       REPUBLICA… NÃO ELEITO                            0
+ 9 GISELE DA SILVA            PSDB       NÃO ELEITO                            0
+10 MARCO ANTONIO DA SILVA     MOBILIZA   NÃO ELEITO                            0
+# ℹ 1,006 more rows
+# ℹ abbreviated name: ¹​SOMA_QT_VOTOS_NOMINAIS_VALIDOS</code></pre>
+</div>
+</div>
+<p>Aparentemente, existem alguns candidatos que não receberam votos válidos.</p>
+<p>Também podemos ordenar os dados em ordem decrescente, utilizando a função <code>desc()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dados_selecionados <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(SOMA_QT_VOTOS_NOMINAIS_VALIDOS))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,016 × 4
+   NM_CANDIDATO               SG_PARTIDO DS_SIT_TOT_TURNO SOMA_QT_VOTOS_NOMINA…¹
+   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt;                             &lt;dbl&gt;
+ 1 LUCAS PAVANATO DE OLIVEIRA PL         ELEITO POR QP                    161386
+ 2 ANA CAROLINA CUNHA DE OLI… PODE       ELEITO POR QP                    129563
+ 3 MURILLO DE OLIVEIRA LIMA   PP         ELEITO POR QP                    113820
+ 4 ISRAEL NANTES SANTOS       PP         ELEITO POR QP                    112484
+ 5 AMANDA MARQUES PASCHOAL    PSOL       ELEITO POR QP                    108654
+ 6 RUBENS ALBERTO GATTI NUNES UNIÃO      ELEITO POR QP                    101549
+ 7 LUNA ZARATTINI BRANDÃO     PT         ELEITO POR QP                    100921
+ 8 LUANA DOS SANTOS ALVES SI… PSOL       ELEITO POR QP                     83262
+ 9 SANDRA REGINA CARBONE TAD… PL         ELEITO POR QP                     74511
+10 SANDRA APARECIDA DE SOUZA… UNIÃO      ELEITO POR QP                     74192
+# ℹ 1,006 more rows
+# ℹ abbreviated name: ¹​SOMA_QT_VOTOS_NOMINAIS_VALIDOS</code></pre>
+</div>
+</div>
+</section>
+<section id="filtrando-dados-com-filter" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="filtrando-dados-com-filter"><span class="header-section-number">3.7</span> Filtrando dados com <code>filter()</code></h2>
+<p>A função <code>filter()</code> é utilizada para filtrar linhas de um data frame com base em condições específicas.</p>
+<p>Por exemplo, podemos filtrar apenas as pessoas candidatas de determinado partido (neste exemplo, da Rede). Para isso, utilizamos o operador de comparação <code>==</code> (igualdade):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SG_PARTIDO <span class="sc">==</span> <span class="st">"REDE"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 51
+  DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
+  &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+2 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+3 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+7 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+8 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+# ℹ 45 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
+#   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
+#   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
+#   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
+#   NR_CPF_CANDIDATO &lt;dbl&gt;, DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
+#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;,
+#   SG_PARTIDO &lt;chr&gt;, NM_PARTIDO &lt;chr&gt;, NR_FEDERACAO &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>Podemos também filtrar com mais de uma condição. Por exemplo, podemos filtrar apenas os resultados de candidatos(as) a vereador(a) que foram eleitos por quociente partidário (QP) ou por média. Neste caso, usamos o operador <code>%in%</code>, que permite verificar se um valor está presente em um vetor (<code>c()</code>) de valores.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DS_SIT_TOT_TURNO <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ELEITO POR QP"</span>, <span class="st">"ELEITO POR MÉDIA"</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 55 × 51
+   DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
+   &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 2 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 3 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 7 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 8 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 9 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+10 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+# ℹ 45 more rows
+# ℹ 45 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
+#   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
+#   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
+#   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
+#   NR_CPF_CANDIDATO &lt;dbl&gt;, DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
+#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>A tabela filtrada tem 55 linhas, ou seja, foram eleitos 55 vereadores(as) na cidade de São Paulo nas eleições de 2024.</p>
+<p>Podemos usar filtros com números também. Por exemplo: quantos(as) candidatos(as) a vereador(a) receberam 100 mil votos válidos ou mais?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SOMA_QT_VOTOS_NOMINAIS_VALIDOS <span class="sc">&gt;=</span> <span class="dv">100000</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 51
+  DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
+  &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+2 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+3 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+7 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+# ℹ 45 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
+#   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
+#   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
+#   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
+#   NR_CPF_CANDIDATO &lt;dbl&gt;, DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
+#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;,
+#   SG_PARTIDO &lt;chr&gt;, NM_PARTIDO &lt;chr&gt;, NR_FEDERACAO &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>Ao filtrar, podemos combinar várias condições utilizando os operadores lógicos (como o <code>|</code> (OU) e o <code>!</code> (NEGAÇÃO)).</p>
+</section>
+<section id="adicionando-ou-modificando-colunas-com-mutate" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="adicionando-ou-modificando-colunas-com-mutate"><span class="header-section-number">3.8</span> Adicionando ou modificando colunas com <code>mutate()</code></h2>
+<p>A função <code>mutate()</code> é utilizada para adicionar novas colunas ou modificar colunas existentes em um data frame.</p>
+<p>A sintaxe básica da função <code>mutate()</code> é:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>base_de_dados <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">nome_da_nova_coluna =</span> o_que_queremos_que_seja_salvo_nela)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A função <code>mutate()</code> também pode ser utilizada para modificar colunas existentes.</p>
+<p>Por exemplo, podemos criar uma nova coluna chamada <code>mil_votos_validos</code>, que representa a quantidade de votos válidos dividida por 1000, para facilitar a leitura dos números:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mil_votos_validos =</span> <span class="fu">round</span>(SOMA_QT_VOTOS_NOMINAIS_VALIDOS<span class="sc">/</span><span class="dv">1000</span>, <span class="dv">2</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 55 × 52
+   DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
+   &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 2 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 3 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 7 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 8 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+ 9 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+10 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
+# ℹ 45 more rows
+# ℹ 46 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
+#   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
+#   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
+#   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
+#   NR_CPF_CANDIDATO &lt;dbl&gt;, DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
+#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+</section>
+<section id="agrupando-dados-com-group_by" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="agrupando-dados-com-group_by"><span class="header-section-number">3.9</span> Agrupando dados com <code>group_by()</code></h2>
+<p>A função <code>group_by()</code> é utilizada para agrupar os dados com base em uma ou mais colunas. Isso é especialmente útil quando queremos aplicar funções de resumo a cada grupo.</p>
+<p>Por exemplo, podemos agrupar os dados por colunas relacionado aos partidos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SG_PARTIDO, NM_PARTIDO) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,016 × 51
+# Groups:   SG_PARTIDO, NM_PARTIDO [29]
    DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
    &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
  1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
@@ -612,143 +796,7 @@ $ DS_SIT_TOT_TURNO              &lt;chr&gt; "NÃO ELEITO", "#NULO", "#NULO", "#N
  9 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 10 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
 # ℹ 1,006 more rows
-# ℹ 44 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
-#   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
-#   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
-#   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
-#   NR_CPF_CANDIDATO &lt;dbl&gt;, DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
-#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;, …</code></pre>
-</div>
-</div>
-<p>Podemos também filtrar com mais de uma condição. Por exemplo, podemos filtrar apenas os resultados de candidatos(as) a vereador(a) que foram eleitos por quociente partidário (QP) ou por média. Neste caso, usamos o operador <code>%in%</code>, que permite verificar se um valor está presente em um vetor (<code>c()</code>) de valores.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="ot">&lt;-</span> dados_vereadores <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DS_SIT_TOT_TURNO <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ELEITO POR QP"</span>, <span class="st">"ELEITO POR MÉDIA"</span>))</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 55 × 50
-   DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
-   &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 2 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 3 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 7 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 8 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 9 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
-10 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
-# ℹ 45 more rows
-# ℹ 44 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
-#   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
-#   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
-#   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
-#   NR_CPF_CANDIDATO &lt;dbl&gt;, DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
-#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;, …</code></pre>
-</div>
-</div>
-<p>A tabela filtrada tem 55 linhas, ou seja, foram eleitos 55 vereadores(as) na cidade de São Paulo nas eleições de 2024.</p>
-<p>Ao filtrar, podemos combinar várias condições utilizando os operadores lógicos (como o <code>|</code> (OU) e o <code>!</code> (NEGAÇÃO)).</p>
-</section>
-<section id="selecionando-colunas-com-select" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="selecionando-colunas-com-select"><span class="header-section-number">3.7</span> Selecionando colunas com <code>select()</code></h2>
-<p>A função <code>select()</code> é utilizada para selecionar colunas específicas de um data frame.</p>
-<p>Por exemplo, podemos selecionar apenas um conjunto de colunas de interesse:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(NM_URNA_CANDIDATO, SG_PARTIDO, NM_PARTIDO)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 55 × 3
-   NM_URNA_CANDIDATO           SG_PARTIDO NM_PARTIDO                      
-   &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;                           
- 1 SENIVAL MOURA               PT         PARTIDO DOS TRABALHADORES       
- 2 SONAIRA FERNANDES           PL         PARTIDO LIBERAL                 
- 3 ISAC FÉLIX                  PL         PARTIDO LIBERAL                 
- 4 GILBERTO NASCIMENTO         PL         PARTIDO LIBERAL                 
- 5 SILVIA DA BANCADA FEMINISTA PSOL       PARTIDO SOCIALISMO E LIBERDADE  
- 6 RICARDO TEIXEIRA            UNIÃO      UNIÃO BRASIL                    
- 7 RUTE COSTA                  PL         PARTIDO LIBERAL                 
- 8 JOÃO JORGE                  MDB        MOVIMENTO DEMOCRÁTICO BRASILEIRO
- 9 SILVINHO                    UNIÃO      UNIÃO BRASIL                    
-10 SILVÃO LEITE                UNIÃO      UNIÃO BRASIL                    
-# ℹ 45 more rows</code></pre>
-</div>
-</div>
-<p>Podemos também indicar quais colunas queremos excluir, utilizando o operador <code>-</code> antes do nome da coluna. Por exemplo, para excluir as colunas <code>ano</code> e <code>uf</code>, podemos fazer o seguinte:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>DT_GERACAO, <span class="sc">-</span>HH_GERACAO)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 55 × 48
-   ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO CD_ELEICAO DS_ELEICAO 
-         &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      
- 1        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 2        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 3        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 4        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 5        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 6        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 7        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 8        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
- 9        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
-10        2024               2 ELEIÇÃO ORDINÁRIA        1        619 Eleições M…
-# ℹ 45 more rows
-# ℹ 42 more variables: DT_ELEICAO &lt;chr&gt;, TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;,
-#   SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;, CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;,
-#   SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;, NM_CANDIDATO &lt;chr&gt;,
-#   NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;, NR_CPF_CANDIDATO &lt;dbl&gt;,
-#   DS_EMAIL &lt;chr&gt;, CD_SITUACAO_CANDIDATURA &lt;dbl&gt;,
-#   DS_SITUACAO_CANDIDATURA &lt;chr&gt;, TP_AGREMIACAO &lt;chr&gt;, NR_PARTIDO &lt;dbl&gt;, …</code></pre>
-</div>
-</div>
-</section>
-<section id="adicionando-ou-modificando-colunas-com-mutate" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="adicionando-ou-modificando-colunas-com-mutate"><span class="header-section-number">3.8</span> Adicionando ou modificando colunas com <code>mutate()</code></h2>
-<p>A função <code>mutate()</code> é utilizada para adicionar novas colunas ou modificar colunas existentes em um data frame.</p>
-<p>A sintaxe básica da função <code>mutate()</code> é:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>base_de_dados <span class="sc">|&gt;</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">nome_da_nova_coluna =</span> o_que_queremos_que_seja_salvo_nela)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>A função <code>mutate()</code> também pode ser utilizada para modificar colunas existentes.</p>
-<p>Por exemplo, podemos criar uma coluna nova chamada <code>idade</code> a partir da coluna <code>DT_NASCIMENTO</code> (data de nascimento) e da data da eleição:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dados_com_idade <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convertendo a coluna DT_NASCIMENTO para o formato de data</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_de_nascimento =</span> <span class="fu">parse_date</span>(DT_NASCIMENTO, <span class="at">format =</span> <span class="st">"%d/%m/%Y"</span>),</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_da_eleicao =</span> <span class="fu">parse_date</span>(DT_ELEICAO, <span class="at">format =</span> <span class="st">"%d/%m/%Y"</span>),</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># criando a coluna idade a partir da diferença entre as duas datas</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">idade =</span> <span class="fu">floor</span>(<span class="fu">interval</span>(data_de_nascimento, data_da_eleicao) <span class="sc">/</span> <span class="fu">years</span>(<span class="dv">1</span>))  <span class="co"># idade em anos </span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="agrupando-dados-com-group_by" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="agrupando-dados-com-group_by"><span class="header-section-number">3.9</span> Agrupando dados com <code>group_by()</code></h2>
-<p>A função <code>group_by()</code> é utilizada para agrupar os dados com base em uma ou mais colunas. Isso é especialmente útil quando queremos aplicar funções de resumo a cada grupo.</p>
-<p>Por exemplo, podemos agrupar os dados por colunas relacionado aos partidos:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SG_PARTIDO, NM_PARTIDO) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 55 × 50
-# Groups:   SG_PARTIDO, NM_PARTIDO [13]
-   DT_GERACAO HH_GERACAO ANO_ELEICAO CD_TIPO_ELEICAO NM_TIPO_ELEICAO   NR_TURNO
-   &lt;chr&gt;      &lt;time&gt;           &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 2 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 3 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 4 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 5 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 6 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 7 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 8 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
- 9 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
-10 18/07/2025 12:30:11          2024               2 ELEIÇÃO ORDINÁRIA        1
-# ℹ 45 more rows
-# ℹ 44 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
+# ℹ 45 more variables: CD_ELEICAO &lt;dbl&gt;, DS_ELEICAO &lt;chr&gt;, DT_ELEICAO &lt;chr&gt;,
 #   TP_ABRANGENCIA &lt;chr&gt;, SG_UF &lt;chr&gt;, SG_UE &lt;dbl&gt;, NM_UE &lt;chr&gt;,
 #   CD_CARGO &lt;dbl&gt;, DS_CARGO &lt;chr&gt;, SQ_CANDIDATO &lt;dbl&gt;, NR_CANDIDATO &lt;dbl&gt;,
 #   NM_CANDIDATO &lt;chr&gt;, NM_URNA_CANDIDATO &lt;chr&gt;, NM_SOCIAL_CANDIDATO &lt;chr&gt;,
@@ -763,90 +811,88 @@ $ DS_SIT_TOT_TURNO              &lt;chr&gt; "NÃO ELEITO", "#NULO", "#NULO", "#N
 <h2 data-number="3.10" class="anchored" data-anchor-id="resumindo-dados-com-summarise"><span class="header-section-number">3.10</span> Resumindo dados com <code>summarise()</code></h2>
 <p>A função <code>summarise()</code> é utilizada para resumir os dados, calculando estatísticas agregadas. Ela é frequentemente utilizada em conjunto com a função <code>group_by()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>quantidade_eleitos_por_partido <span class="ot">&lt;-</span> dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># agrupando por colunas com informações dos partidos</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SG_PARTIDO, NM_PARTIDO) <span class="sc">|&gt;</span> </span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># contando o número de candidatos por grupo</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">quantidade_candidatos_eleitos =</span> <span class="fu">n</span>(),  </span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>   <span class="co"># removendo o agrupamento</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>dados_por_partido <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># agrupando por colunas com informações dos partidos</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SG_PARTIDO, NM_PARTIDO) <span class="sc">|&gt;</span> </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># contando o número de candidatos por grupo</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">quantidade_candidatos =</span> <span class="fu">n</span>(),  </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">quantidade_eleitos =</span> <span class="fu">sum</span>(DS_SIT_TOT_TURNO <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ELEITO POR QP"</span>, <span class="st">"ELEITO POR MÉDIA"</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),  <span class="co"># contando o número de candidatos eleitos</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_votos_por_cand =</span> <span class="fu">mean</span>(SOMA_QT_VOTOS_NOMINAIS_VALIDOS, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),  <span class="co"># calculando a média de votos válidos</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mediana_votos_por_cand =</span> <span class="fu">median</span>(SOMA_QT_VOTOS_NOMINAIS_VALIDOS, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),  <span class="co"># calculando a mediana de votos válidos</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">soma_votos =</span> <span class="fu">sum</span>(SOMA_QT_VOTOS_NOMINAIS_VALIDOS, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  <span class="co"># somando os votos válidos</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>   <span class="co"># removendo o agrupamento</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(quantidade_eleitos), <span class="fu">desc</span>(soma_votos))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'SG_PARTIDO'. You can override using the
 `.groups` argument.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>quantidade_eleitos_por_partido</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>dados_por_partido</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 13 × 3
-   SG_PARTIDO   NM_PARTIDO                       quantidade_candidatos_eleitos
-   &lt;chr&gt;        &lt;chr&gt;                                                    &lt;int&gt;
- 1 MDB          MOVIMENTO DEMOCRÁTICO BRASILEIRO                             7
- 2 NOVO         PARTIDO NOVO                                                 1
- 3 PL           PARTIDO LIBERAL                                              7
- 4 PODE         PODEMOS                                                      6
- 5 PP           PROGRESSISTAS                                                4
- 6 PSB          PARTIDO SOCIALISTA BRASILEIRO                                2
- 7 PSD          PARTIDO SOCIAL DEMOCRÁTICO                                   3
- 8 PSOL         PARTIDO SOCIALISMO E LIBERDADE                               6
- 9 PT           PARTIDO DOS TRABALHADORES                                    8
-10 PV           PARTIDO VERDE                                                1
-11 REDE         REDE SUSTENTABILIDADE                                        1
-12 REPUBLICANOS REPUBLICANOS                                                 2
-13 UNIÃO        UNIÃO BRASIL                                                 7</code></pre>
+<pre><code># A tibble: 29 × 7
+   SG_PARTIDO   NM_PARTIDO              quantidade_candidatos quantidade_eleitos
+   &lt;chr&gt;        &lt;chr&gt;                                   &lt;int&gt;              &lt;int&gt;
+ 1 PT           PARTIDO DOS TRABALHADO…                    48                  8
+ 2 UNIÃO        UNIÃO BRASIL                               46                  7
+ 3 MDB          MOVIMENTO DEMOCRÁTICO …                    57                  7
+ 4 PL           PARTIDO LIBERAL                            56                  7
+ 5 PODE         PODEMOS                                    56                  6
+ 6 PSOL         PARTIDO SOCIALISMO E L…                    48                  6
+ 7 PP           PROGRESSISTAS                              38                  4
+ 8 PSD          PARTIDO SOCIAL DEMOCRÁ…                    32                  3
+ 9 REPUBLICANOS REPUBLICANOS                               47                  2
+10 PSB          PARTIDO SOCIALISTA BRA…                    56                  2
+# ℹ 19 more rows
+# ℹ 3 more variables: media_votos_por_cand &lt;dbl&gt;, mediana_votos_por_cand &lt;dbl&gt;,
+#   soma_votos &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checando o número de eleitos</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(dados_por_partido<span class="sc">$</span>quantidade_eleitos)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55</code></pre>
 </div>
 </div>
 </section>
-<section id="ordenando-dados-com-arrange" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="ordenando-dados-com-arrange"><span class="header-section-number">3.11</span> Ordenando dados com <code>arrange()</code></h2>
-<p>A função <code>arrange()</code> é utilizada para ordenar as linhas de um data frame com base em uma ou mais colunas.</p>
-<p>Podemos ordenar os dados de <code>quantidade_eleitos_por_partido</code> pela coluna <code>quantidade_candidatos_eleitos</code>, utilizando a função <code>arrange()</code>. Mas atenção: por padrão, a função <code>arrange()</code> ordena os dados em ordem crescente.</p>
+<section id="extra-count" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="extra-count"><span class="header-section-number">3.11</span> Extra: <code>count()</code></h2>
+<p>A função <code>count()</code> é uma forma simplificada de usar <code>group_by()</code> e <code>summarise()</code>. Ela conta o número de ocorrências de cada grupo e retorna um data frame com as contagens. Por exemplo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>quantidade_eleitos_por_partido <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(quantidade_candidatos_eleitos)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(DS_GENERO) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 13 × 3
-   SG_PARTIDO   NM_PARTIDO                       quantidade_candidatos_eleitos
-   &lt;chr&gt;        &lt;chr&gt;                                                    &lt;int&gt;
- 1 NOVO         PARTIDO NOVO                                                 1
- 2 PV           PARTIDO VERDE                                                1
- 3 REDE         REDE SUSTENTABILIDADE                                        1
- 4 PSB          PARTIDO SOCIALISTA BRASILEIRO                                2
- 5 REPUBLICANOS REPUBLICANOS                                                 2
- 6 PSD          PARTIDO SOCIAL DEMOCRÁTICO                                   3
- 7 PP           PROGRESSISTAS                                                4
- 8 PODE         PODEMOS                                                      6
- 9 PSOL         PARTIDO SOCIALISMO E LIBERDADE                               6
-10 MDB          MOVIMENTO DEMOCRÁTICO BRASILEIRO                             7
-11 PL           PARTIDO LIBERAL                                              7
-12 UNIÃO        UNIÃO BRASIL                                                 7
-13 PT           PARTIDO DOS TRABALHADORES                                    8</code></pre>
+<pre><code># A tibble: 2 × 2
+  DS_GENERO     n
+  &lt;chr&gt;     &lt;int&gt;
+1 FEMININO     20
+2 MASCULINO    35</code></pre>
 </div>
 </div>
-<p>Aparentemente, existem alguns candidatos que não receberam votos válidos.</p>
-<p>Também podemos ordenar os dados em ordem decrescente, utilizando a função <code>desc()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>quantidade_eleitos_por_partido_ordenado <span class="ot">&lt;-</span> quantidade_eleitos_por_partido <span class="sc">|&gt;</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(quantidade_candidatos_eleitos))</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>quantidade_eleitos_por_partido_ordenado</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(DS_GRAU_INSTRUCAO) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 13 × 3
-   SG_PARTIDO   NM_PARTIDO                       quantidade_candidatos_eleitos
-   &lt;chr&gt;        &lt;chr&gt;                                                    &lt;int&gt;
- 1 PT           PARTIDO DOS TRABALHADORES                                    8
- 2 MDB          MOVIMENTO DEMOCRÁTICO BRASILEIRO                             7
- 3 PL           PARTIDO LIBERAL                                              7
- 4 UNIÃO        UNIÃO BRASIL                                                 7
- 5 PODE         PODEMOS                                                      6
- 6 PSOL         PARTIDO SOCIALISMO E LIBERDADE                               6
- 7 PP           PROGRESSISTAS                                                4
- 8 PSD          PARTIDO SOCIAL DEMOCRÁTICO                                   3
- 9 PSB          PARTIDO SOCIALISTA BRASILEIRO                                2
-10 REPUBLICANOS REPUBLICANOS                                                 2
-11 NOVO         PARTIDO NOVO                                                 1
-12 PV           PARTIDO VERDE                                                1
-13 REDE         REDE SUSTENTABILIDADE                                        1</code></pre>
+<pre><code># A tibble: 3 × 2
+  DS_GRAU_INSTRUCAO         n
+  &lt;chr&gt;                 &lt;int&gt;
+1 ENSINO MÉDIO COMPLETO     5
+2 SUPERIOR COMPLETO        46
+3 SUPERIOR INCOMPLETO       4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(DS_COR_RACA) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  DS_COR_RACA     n
+  &lt;chr&gt;       &lt;int&gt;
+1 AMARELA         1
+2 BRANCA         38
+3 PARDA          10
+4 PRETA           6</code></pre>
 </div>
 </div>
 </section>
@@ -854,125 +900,11 @@ $ DS_SIT_TOT_TURNO              &lt;chr&gt; "NÃO ELEITO", "#NULO", "#NULO", "#N
 <h2 data-number="3.12" class="anchored" data-anchor-id="escrevendo-dados-com-write_csv-ou-writexlwrite_xlsx"><span class="header-section-number">3.12</span> Escrevendo dados com <code>write_csv()</code> ou <code>writexl::write_xlsx()</code></h2>
 <p>Podemos salvar o resultado em um arquivo CSV ou Excel, utilizando as funções <code>readr::write_csv()</code> ou <code>writexl::write_xlsx()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(quantidade_partidos_situacao_ordenado,</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">"dados/tab-quantidade_partidos_situacao_ordenado.csv"</span>)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>writexl<span class="sc">::</span><span class="fu">write_xlsx</span>(quantidade_partidos_situacao_ordenado,</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"dados/tab-quantidade_partidos_situacao_ordenado.xlsx"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercícios" class="level2" data-number="3.13">
-<h2 data-number="3.13" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">3.13</span> Exercícios</h2>
-<p>Com essas funções, podemos explorar diversas perguntas.</p>
-<p>Aqui estão algumas sugestões de perguntas que você pode tentar responder utilizando as funções apresentadas aqui:</p>
-<ol type="1">
-<li>Considerando as variáveis de gênero e cor/raça, quantos candidatos(as) a vereador(a) foram eleitos em cada grupo? Qual é a proporção de cada grupo?</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Sugestão de código
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span> </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DS_GENERO, DS_COR_RACA) <span class="sc">|&gt;</span> </span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()  <span class="co"># contando o número de candidatos por grupo</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">proporcao =</span> <span class="fu">round</span>(n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)  <span class="co"># calculando a proporção de cada grupo</span></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(proporcao))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'DS_GENERO'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 4
-# Groups:   DS_GENERO [2]
-  DS_GENERO DS_COR_RACA     n proporcao
-  &lt;chr&gt;     &lt;chr&gt;       &lt;int&gt;     &lt;dbl&gt;
-1 FEMININO  BRANCA         15      75  
-2 MASCULINO BRANCA         23      65.7
-3 MASCULINO PARDA           9      25.7
-4 FEMININO  PRETA           4      20  
-5 MASCULINO PRETA           2       5.7
-6 FEMININO  PARDA           1       5  
-7 MASCULINO AMARELA         1       2.9</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ol start="2" type="1">
-<li>Qual é a idade média dos candidatos(as) a vereador(a) eleitos? Lembrando que criamos a variável <code>idade</code> e salvamos ela na tabela <code>dados_com_idade</code> (porém ela tem informações para todos os cargos e não apenas para vereadores(as)).</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Sugestão de código
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dados_com_idade <span class="sc">|&gt;</span> </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DS_CARGO <span class="sc">==</span> <span class="st">"VEREADOR"</span>, DS_SIT_TOT_TURNO <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ELEITO POR MÉDIA"</span>, <span class="st">"ELEITO POR QP"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">idade_media =</span> <span class="fu">mean</span>(idade, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  idade_media
-        &lt;dbl&gt;
-1        49.7</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Considerando a variável de grau de instrução, quantos candidatos(as) a vereador(a) foram eleitos em cada grupo?</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Sugestão de código
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>dados_vereadores_eleitos <span class="sc">|&gt;</span> </span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(DS_GRAU_INSTRUCAO) <span class="sc">|&gt;</span> </span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">proporcao =</span> <span class="fu">round</span>(n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)  <span class="co"># calculando a proporção de cada grupo</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(proporcao))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
-  DS_GRAU_INSTRUCAO         n proporcao
-  &lt;chr&gt;                 &lt;int&gt;     &lt;dbl&gt;
-1 SUPERIOR COMPLETO        46      83.6
-2 ENSINO MÉDIO COMPLETO     5       9.1
-3 SUPERIOR INCOMPLETO       4       7.3</code></pre>
-</div>
-</div>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(dados_por_partido,</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">"dados/tab-dados_por_partido.csv"</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>writexl<span class="sc">::</span><span class="fu">write_xlsx</span>(dados_por_partido,</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"dados/tab-dados_por_partido.xlsx"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -1386,7 +1318,7 @@ Sugestão de código
   </div>
   <div class="nav-page nav-page-next">
       <a href="../visualizacao/index.html" class="pagination-link" aria-label="Introdução à elaboração de gráficos com ggplot2 e R">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introdução à elaboração de gráficos com ggplot2 e R</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Introdução à elaboração de gráficos com ggplot2 e R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
