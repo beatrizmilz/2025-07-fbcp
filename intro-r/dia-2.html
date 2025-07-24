@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#importação-de-dados" id="toc-importação-de-dados" class="nav-link active" data-scroll-target="#importação-de-dados"><span class="header-section-number">3.1</span> Importação de dados</a>
   <ul class="collapse">
-  <li><a href="#dados-utilizados-eleicões-de-2024" id="toc-dados-utilizados-eleicões-de-2024" class="nav-link" data-scroll-target="#dados-utilizados-eleicões-de-2024"><span class="header-section-number">3.1.1</span> Dados utilizados: Eleicões de 2024</a></li>
+  <li><a href="#dados-utilizados-eleições-de-2024" id="toc-dados-utilizados-eleições-de-2024" class="nav-link" data-scroll-target="#dados-utilizados-eleições-de-2024"><span class="header-section-number">3.1.1</span> Dados utilizados: Eleições de 2024</a></li>
   <li><a href="#conhecendo-a-base-de-dados" id="toc-conhecendo-a-base-de-dados" class="nav-link" data-scroll-target="#conhecendo-a-base-de-dados"><span class="header-section-number">3.1.2</span> Conhecendo a base de dados</a></li>
   </ul></li>
   <li><a href="#transformação-de-dados" id="toc-transformação-de-dados" class="nav-link" data-scroll-target="#transformação-de-dados"><span class="header-section-number">3.2</span> Transformação de dados</a></li>
@@ -246,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Munistrante</div>
+    <div class="quarto-title-meta-heading">Ministrante</div>
     <div class="quarto-title-meta-contents">
              <p><a href="https://www.beamilz.com/">Beatriz Milz</a> <a href="mailto:milz.bea@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
@@ -263,8 +263,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="importação-de-dados" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="importação-de-dados"><span class="header-section-number">3.1</span> Importação de dados</h2>
-<section id="dados-utilizados-eleicões-de-2024" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="dados-utilizados-eleicões-de-2024"><span class="header-section-number">3.1.1</span> Dados utilizados: Eleicões de 2024</h3>
+<section id="dados-utilizados-eleições-de-2024" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="dados-utilizados-eleições-de-2024"><span class="header-section-number">3.1.1</span> Dados utilizados: Eleições de 2024</h3>
 <p>Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre candidatos para as eleições de 2024. A base de dados original foi baixada do <a href="https://dadosabertos.tse.jus.br/dataset/candidatos-2024">portal de dados abertos do TSE</a>: Candidatos - 2024. Para facilitar o download dos dados durante a atividade, <a href="https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R">filtramos a tabela</a> para dados do município de São Paulo, apenas candidatos(as) para o cargo de Vereador, e unimos com os dados de resultados (soma de votos válidos).</p>
 <p>Junto aos dados, o TSE disponibiliza também um arquivo chamado <a href="https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/leiame-candidatos.pdf"><code>leiame.pdf</code></a>, com informações importantes sobre os dados, significado dos nomes das colunas, entre outros. É importante ler estes arquivos, quando disponibilizados.</p>
 <p>Vamos utilizar o pacote tidyverse para importar os dados, então é importante garantir que ele esteja carregado:</p>
