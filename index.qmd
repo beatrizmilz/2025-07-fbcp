@@ -31,6 +31,8 @@ Para isso, siga as instruções disponíveis na página [Orientações pré-ofic
 
 - Material da disciplina [Análise de Dados para as Ciências Sociais](https://jonnyphillips.github.io/Ciencia_de_Dados/), por Jonathan Phillips.
 
+- [Materiais de palestras e aulas passadas](https://beamilz.com/content)
+
 
 ## Sobre este material
 ### Licença
