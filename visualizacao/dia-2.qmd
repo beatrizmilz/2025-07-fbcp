@@ -2,11 +2,6 @@
 title: "Dia 2 - Customizando gráficos com ggplot2"
 ---
 
-::: {.callout-warning}
-Página em construção.
-:::
-
-
 ## Carregando pacotes
 
 O pacote `tidyverse` é um conjunto de pacotes, e nele encontramos pacotes úteis para essa oficina, como o `readr`, `dplyr` e `ggplot2`. Vamos carregá-lo:
@@ -21,7 +16,7 @@ Vamos carregar a base de dados com a função `read_rds()`:
 
 ```{r}
 #| message: false
-dados <- readr::read_rds("dados/sidra_4092_arrumado.rds") # <1>
+dados <- read_rds("dados/sidra_4092_arrumado.rds") # <1>
 glimpse(dados) # <2>
 ```
 
@@ -149,7 +144,7 @@ No caso do nosso exemplo, queremos ordenar as barras de acordo com o valor de `p
 #| label: customizando-ordenacao
 
 grafico_ordenado <- dados_tri_recente |> 
-  mutate(uf_fct = forcats::fct_reorder(uf, perc_desocupacao)) |> # <1>
+  mutate(uf_fct = fct_reorder(uf, perc_desocupacao)) |> # <1>
   ggplot() + 
   aes(y = uf_fct, x = perc_desocupacao) + # <2>
   geom_col()
@@ -275,19 +270,19 @@ Vamos criar um gráfico de linhas para visualizar a evolução da taxa de desocu
 ```{r}
 #| label: customizando-escala-data
 dados |>
-  filter(uf_sigla == "BA", ano >= 2022) |> # <1>
+  filter(uf_sigla == "SP", ano >= 2019) |> # <1>
   ggplot() +
   aes(x = trimestre_inicio, y = perc_desocupacao) +
   geom_line() +
   geom_point() +
   scale_x_date( # <2>
-    breaks = "3 months", # <3>
+    breaks = "6 months", # <3>
     date_labels = "%m/%Y", # <4>
-    minor_breaks = "1 month" # <5>
+    minor_breaks = "1 months" # <5>
   ) # <2> 
 ```
 
-1.  Filtrando os dados para a Bahia, e considerando apenas os dados a partir de 2022.
+1.  Filtrando os dados para o estado de São Paulo, e considerando apenas os dados a partir de 2019.
 2.  Customizando a escala de data no eixo `x`.
 3.  Queremos que a marcação apareça a cada 3 meses.
 4.  Formato da data que será apresentado (mês/ano).
@@ -304,7 +299,7 @@ Podemos definir que o eixo `y` comece em 0 e termine em 20%, utilizando o argume
 ```{r}
 #| label: customizando-escala-numerica
 dados |>
-  filter(uf_sigla == "BA", ano >= 2022) |>
+  filter(uf_sigla == "SP", ano >= 2019) |>
   ggplot() +
   aes(x = trimestre_inicio, y = perc_desocupacao) +
   geom_line() +
@@ -372,15 +367,15 @@ Vamos usar essas funções para customizar o gráfico apresentado no exemplo aci
 ```{r}
 #| label: customizando-grafico-completo
 grafico_customizado <- dados |> # <1>
-  filter(regiao == "Sul") |> 
+  filter(regiao == "Sudeste") |> 
   ggplot() + 
   aes(x = trimestre_inicio, y = perc_desocupacao, color = uf) +  
   geom_line() + 
   theme_light() + # <2>
-  scale_color_viridis_d() + # <3>
+  scale_color_viridis_d(end = 0.9) + # <3>
   scale_x_date(breaks = "1 year", date_labels = "%Y") + # <4>
   labs( # <5>
-    title = "Taxa de desocupação por estado na região Sul",
+    title = "Taxa de desocupação por estado na região Sudeste",
     subtitle = "Dados da PNAD Contínua Trimestral",
     caption = "Fonte dos dados: SIDRA/IBGE.",
     color = "Estado",

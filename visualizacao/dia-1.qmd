@@ -13,19 +13,15 @@ library(tidyverse)
 
 ## Importando dados
 
-Nesta aula, utilizaremos a tabela preparada na [aula sobre transformação de dados](05_transformacao): `"dados/sidra_4092_arrumado.rds"`.
+Os dados que utilizaremos nesta oficina são referentes à taxa de desocupação no Brasil, coletados do [SIDRA](https://sidra.ibge.gov.br/). A forma de importação e preparação dos dados está disponível no arquivo [visualizacao/dados/prep-dados.R](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/visualizacao/dados/prep-dados.R) no repositório do curso.
 
 ::: {.callout-important collapse="true"}
 ### Expanda para fazer download da base de dados
 
-Caso não tenha o arquivo da tabela que utilizaremos, você pode baixar [aqui](https://github.com/ipeadata-lab/curso_r_intro_202409/raw/refs/heads/main/dados_output/sidra_4092_arrumado.rds), e copiar o arquivo para a pasta `dados_output` do seu projeto.
-
-Outra opção é executar o código abaixo:
-
 ```{r}
 #| eval: false
 download.file(
-  url = "https://github.com/ipeadata-lab/curso_r_intro_202409/raw/refs/heads/main/dados_output/sidra_4092_arrumado.rds",  # <1>
+  url = "https://github.com/beatrizmilz/2025-07-fbcp/raw/refs/heads/main/visualizacao/dados/sidra_4092_arrumado.rds",  # <1>
   destfile = "dados/sidra_4092_arrumado.rds", # <2>
   mode = "wb" # <3>
   )
@@ -40,7 +36,7 @@ Vamos carregar a base de dados com a função `read_rds()`:
 
 ```{r}
 #| message: false
-dados <- readr::read_rds("dados/sidra_4092_arrumado.rds") # <1>
+dados <- read_rds("dados/sidra_4092_arrumado.rds") # <1>
 glimpse(dados) # <2>
 ```
 
@@ -119,8 +115,6 @@ Vamos criar alguns gráficos exploratórios com os dados de desocupação por tr
 
 Gráficos exploratórios são utilizados para entender melhor os dados, identificar padrões e tendências, e verificar a presença de outliers. Neste momento, não estamos preocupados com a estética do gráfico, mas sim com a interpretação dos dados.
 
-Falaremos como [customizar os gráficos mais adiante](#customizando-gr%C3%A1ficos).
-
 ### Tipos de gráficos
 
 #### Gráficos de dispersão
@@ -132,7 +126,7 @@ O gráfico de dispersão é utilizado para visualizar a relação entre duas var
 ```{r}
 #| label: exemplo-ggplot2-dispersao
 dados |>
-  filter(uf_sigla == "BA") |>
+  filter(uf_sigla == "SP") |>
   ggplot() +
   aes(x = trimestre_inicio, y = perc_desocupacao) +
   geom_point()
@@ -147,7 +141,7 @@ Vamos criar um gráfico de linha para visualizar a evolução da taxa de desocup
 ```{r}
 #| label: exemplo-ggplot2-linha
 dados |> 
-  filter(uf_sigla == "BA") |> 
+  filter(uf_sigla == "SP") |> 
   ggplot() + 
   aes(x = trimestre_inicio, y = perc_desocupacao) + 
   geom_line()
@@ -170,7 +164,7 @@ Podemos combinar diferentes geometrias no mesmo gráfico. Por exemplo, podemos a
 ```{r}
 #| label: exemplo-ggplot2-linha-ponto
 dados |> 
-  filter(uf_sigla == "BA") |> 
+  filter(uf_sigla == "SP") |> 
   ggplot() + 
   aes(x = trimestre_inicio, y = perc_desocupacao) + 
   geom_line(color = "red") +
@@ -182,7 +176,7 @@ Outro ponto importante é que a **ordem das geometrias importa**! No exemplo aci
 ```{r}
 #| label: exemplo-ggplot2-ponto-linha
 dados |> 
-  filter(uf_sigla == "BA") |> 
+  filter(uf_sigla == "SP") |> 
   ggplot() + 
   aes(x = trimestre_inicio, y = perc_desocupacao) + 
   geom_point(color = "blue") +
@@ -281,7 +275,7 @@ Vamos ver um exemplo de gráfico de linhas apresentado anteriormente, adicionamo
 ```{r}
 #| label: exemplo-ggplot2-linha-color
 dados |> 
-  filter(uf_sigla == "BA") |> # <1>
+  filter(uf_sigla == "SP") |> # <1>
   mutate(periodo_pandemia = as.character(periodo_pandemia)) |>
   ggplot() + 
   aes(x = trimestre_inicio, y = perc_desocupacao) + 
