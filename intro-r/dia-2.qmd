@@ -4,7 +4,7 @@ title: "Dia 2 - Importação e transformação"
 
 ## Importação de dados
 
-### Dados utilizados: Eleicões de 2024
+### Dados utilizados: Eleições de 2024
 
 Os dados que utilizaremos nesse curso são provenientes de uma base de dados do Tribunal Superior Eleitoral (TSE) do Brasil, que contém informações sobre candidatos para as eleições de 2024. A base de dados original foi baixada do [portal de dados abertos do TSE](https://dadosabertos.tse.jus.br/dataset/candidatos-2024): Candidatos - 2024. Para facilitar o download dos dados durante a atividade, [filtramos a tabela](https://github.com/beatrizmilz/2025-07-fbcp/blob/main/intro-r/dados/prep-dados.R) para dados do município de São Paulo, apenas candidatos(as) para o cargo de Vereador, e unimos com os dados de resultados (soma de votos válidos).
 
